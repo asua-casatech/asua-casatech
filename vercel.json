@@ -1,3 +1,7 @@
 {
-  "public": true
+  "functions": {
+    "api/products.js": {
+      "runtime": "edge"
+    }
+  }
 }
