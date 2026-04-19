@@ -7,58 +7,20 @@
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','230566878462134');fbq('track','PageView');</script>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--blue:#1a6bff;--green:#1a8c4e;--white:#fff;--gray:#f5f5f3;--border:#e8e8e8;--text:#111;--text2:#666}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
+:root{--blue:#1a6bff;--green:#1a8c4e;--gray:#f5f5f3;--border:#e8e8e8;--text:#111;--text2:#666}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
 body{font-family:'DM Sans',sans-serif;background:#fff;color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 .announce{background:linear-gradient(90deg,var(--green),#0f7a42 50%,var(--blue));padding:10px 20px;text-align:center;font-size:12.5px;font-weight:500;color:#fff}
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(255,255,255,0.96);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:0 1px 12px rgba(0,0,0,0.06)}
-.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.06em;color:var(--text)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Bebas Neue',sans-serif;font-size:24px;letter-spacing:0.06em}
 .nav-logo img{height:40px;width:40px;object-fit:contain}
-.nav-logo .g{color:var(--green)}
+.g{color:var(--green)}
 .nav-links{display:flex;gap:28px;list-style:none}
 .nav-links a{font-size:13.5px;color:var(--text2);transition:color .2s;font-weight:500}
 .nav-links a:hover{color:var(--text)}
 .nav-cta{background:var(--blue)!important;color:#fff!important;padding:9px 22px!important;border-radius:50px;font-weight:600!important}
-.hero{min-height:100vh;display:flex;align-items:center;padding:120px 48px 80px;background:#fff;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:0;right:0;width:50%;height:100%;background:radial-gradient(ellipse at 80% 50%,rgba(26,107,255,0.05),transparent 70%)}
-.hero-inner{max-width:1100px;width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(26,107,255,0.08);border:1px solid rgba(26,107,255,0.2);padding:6px 14px;border-radius:50px;font-size:11.5px;font-weight:600;color:var(--blue);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
-.hero-badge::before{content:'';width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,5.5vw,80px);line-height:.95;letter-spacing:.02em;margin-bottom:20px;color:var(--text)}
-.h1-blue{color:var(--blue)}
-.h1-green{color:var(--green)}
-.hero-sub{font-size:17px;color:var(--text2);line-height:1.7;font-weight:300;max-width:460px;margin-bottom:32px}
-.hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
-.btn-primary{background:linear-gradient(135deg,var(--blue),#0050dd);color:#fff;padding:14px 32px;border-radius:50px;font-size:15px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:all .25s;box-shadow:0 6px 24px rgba(26,107,255,.3)}
-.btn-primary:hover{transform:translateY(-2px)}
-.btn-ghost{color:var(--text2);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:6px;transition:all .2s;padding:14px 0}
-.btn-ghost:hover{color:var(--text)}
-.hero-stats{display:flex;gap:32px;margin-top:40px;padding-top:32px;border-top:2px solid var(--border)}
-.stat-num{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;color:var(--text)}
-.stat-num span{color:var(--green)}
-.stat-label{font-size:12px;color:var(--text2);margin-top:2px}
-.hero-right{position:relative}
-.hero-card{background:#fff;border:2px solid var(--border);border-radius:24px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,0.08)}
-.hero-card-img{height:260px;background:var(--gray);display:flex;align-items:center;justify-content:center;font-size:80px;position:relative}
-.hero-card-body{padding:24px}
-.htag{display:inline-block;background:rgba(26,140,78,.1);border:1px solid rgba(26,140,78,.2);color:var(--green);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:4px;margin-bottom:10px}
-.hname{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;margin-bottom:4px;line-height:1.3}
-.hdesc{font-size:12px;color:var(--text2);margin-bottom:14px}
-.hprice-row{display:flex;align-items:center;justify-content:space-between}
-.hprice{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--green)}
-.hprice-old{font-size:13px;color:#aaa;text-decoration:line-through;margin-left:8px}
-.hbadge{background:rgba(26,107,255,.1);border:1px solid rgba(26,107,255,.2);color:var(--blue);font-size:11px;font-weight:700;padding:3px 10px;border-radius:4px}
-.hbtn{display:block;width:100%;background:linear-gradient(135deg,var(--green),#0f6635);color:#fff;text-align:center;padding:13px;border-radius:12px;font-weight:600;font-size:14px;margin-top:16px;transition:all .2s;box-shadow:0 4px 16px rgba(26,140,78,.25)}
-.hbtn:hover{transform:translateY(-1px)}
-.fbadge{position:absolute;background:#fff;border:1px solid var(--border);border-radius:12px;padding:10px 14px;font-size:12px;font-weight:600;display:flex;align-items:center;gap:8px;box-shadow:0 8px 24px rgba(0,0,0,.1);animation:float 4s ease-in-out infinite;color:var(--text)}
-.fbadge.tr{top:-16px;right:-16px;animation-delay:.5s}
-.fbadge.bl{bottom:16px;left:-16px;animation-delay:1.5s}
-.fdot{width:8px;height:8px;border-radius:50%}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.trust-bar{background:var(--gray);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 48px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
+.trust-bar{margin-top:64px;background:var(--gray);border-bottom:1px solid var(--border);padding:14px 48px;display:flex;justify-content:center;gap:48px;flex-wrap:wrap}
 .trust-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text2);font-weight:500}
 .trust-item strong{color:var(--text)}
 .marquee-wrap{overflow:hidden;border-bottom:1px solid var(--border);padding:11px 0;background:#fff}
@@ -66,105 +28,66 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,5.5vw,80px);line-hei
 .marquee-item{display:flex;align-items:center;gap:10px;padding:0 32px;font-size:13px;color:var(--text2);white-space:nowrap;border-right:1px solid var(--border)}
 .marquee-item strong{color:var(--text)}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-section{padding:100px 48px}
-.si{max-width:1100px;margin:0 auto}
+section{padding:80px 48px}
+.si{max-width:1200px;margin:0 auto}
 .slabel{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
-.stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,52px);line-height:1;letter-spacing:.02em;margin-bottom:14px;color:var(--text)}
-.banner{background:var(--gray);border:1px solid var(--border);border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;min-height:460px;cursor:pointer;transition:all .3s}
-.banner:hover{box-shadow:0 20px 60px rgba(0,0,0,.1);transform:translateY(-2px)}
-.banner-content{padding:52px 48px;display:flex;flex-direction:column;justify-content:center}
-.btag{display:inline-flex;align-items:center;gap:6px;background:rgba(26,140,78,.1);border:1px solid rgba(26,140,78,.2);color:var(--green);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 12px;border-radius:4px;margin-bottom:18px;width:fit-content}
-.btitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,3.5vw,54px);line-height:1;letter-spacing:.02em;margin-bottom:14px;color:var(--text)}
-.btitle .hl{color:var(--blue)}
-.bdesc{font-size:15px;color:var(--text2);line-height:1.7;font-weight:300;margin-bottom:22px}
-.bfeatures{list-style:none;margin-bottom:28px;display:flex;flex-direction:column;gap:8px}
-.bfeatures li{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--text)}
-.bfeatures li::before{content:'✓';color:var(--green);font-weight:700;font-size:14px}
-.bprice-row{display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.bprice{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:var(--green)}
-.bprice-old{font-size:16px;color:#aaa;text-decoration:line-through}
-.bbadge{background:rgba(26,107,255,.1);border:1px solid rgba(26,107,255,.2);color:var(--blue);font-size:12px;font-weight:700;padding:4px 12px;border-radius:4px}
-.bcta-row{display:flex;gap:12px;align-items:center}
-.bbtn{background:linear-gradient(135deg,var(--blue),#0050dd);color:#fff;padding:13px 28px;border-radius:50px;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:all .25s;box-shadow:0 4px 16px rgba(26,107,255,.3)}
-.bbtn:hover{transform:translateY(-2px)}
-.bghost{color:var(--text2);font-size:13px;font-weight:500;display:inline-flex;align-items:center;gap:5px;transition:color .2s}
-.bghost:hover{color:var(--text)}
-.banner-visual{background:var(--gray);display:flex;align-items:center;justify-content:center;font-size:120px;position:relative;overflow:hidden}
-.urgency{position:absolute;bottom:16px;right:16px;background:rgba(255,255,255,.95);border:1px solid var(--border);border-radius:10px;padding:8px 14px;font-size:12px;font-weight:600;color:var(--text);box-shadow:0 4px 16px rgba(0,0,0,.1)}
-.udot{display:inline-block;width:8px;height:8px;background:#ff4444;border-radius:50%;margin-right:6px;animation:pulse 1.5s infinite}
-.cats-section{background:var(--gray);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.cats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:40px}
-.cat-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:24px 16px;text-align:center;cursor:pointer;transition:all .25s;display:block;color:inherit;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.cat-card:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 8px 24px rgba(26,107,255,.12)}
-.cat-icon{font-size:28px;margin-bottom:10px;display:block}
-.cat-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:3px}
-.cat-count{font-size:11px;color:var(--text2)}
+.stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,52px);line-height:1;letter-spacing:.02em;margin-bottom:32px;color:var(--text)}
 .ph{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px}
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.pc{background:#fff;border:1px solid var(--border);border-radius:18px;overflow:hidden;cursor:pointer;transition:all .3s;display:block;color:inherit;box-shadow:0 2px 12px rgba(0,0,0,.05)}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pc{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:all .3s;display:block;color:inherit;box-shadow:0 2px 12px rgba(0,0,0,.05)}
 .pc:hover{transform:translateY(-6px);border-color:rgba(26,107,255,.3);box-shadow:0 20px 48px rgba(0,0,0,.12)}
-.pc-img{height:200px;background:var(--gray);display:flex;align-items:center;justify-content:center;font-size:72px;position:relative;overflow:hidden}
-.pc-tag{position:absolute;top:10px;left:10px;padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
-.pc-tag.blue{background:rgba(26,107,255,.15);color:var(--blue);border:1px solid rgba(26,107,255,.2)}
-.pc-tag.green{background:rgba(26,140,78,.15);color:var(--green);border:1px solid rgba(26,140,78,.2)}
-.pc-tag.red{background:rgba(255,68,68,.12);color:#e53e3e;border:1px solid rgba(255,68,68,.2)}
-.pc-body{padding:18px}
-.pc-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px;line-height:1.3}
-.pc-desc{font-size:12px;color:var(--text2);margin-bottom:14px;line-height:1.5}
-.pc-footer{display:flex;justify-content:space-between;align-items:center}
-.pc-price{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--green)}
+.pc-img{height:200px;overflow:hidden;position:relative;background:var(--gray);display:flex;align-items:center;justify-content:center}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.pc:hover .pc-img img{transform:scale(1.05)}
+.pc-img .emoji{font-size:72px}
+.pc-tag{position:absolute;top:10px;left:10px;padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(26,140,78,.15);color:var(--green);border:1px solid rgba(26,140,78,.2)}
+.pc-body{padding:16px}
+.pc-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:4px;line-height:1.3;color:var(--text)}
+.pc-footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.pc-price{font-family:'Syne',sans-serif;font-size:19px;font-weight:800;color:var(--green)}
 .pc-price-old{font-size:11px;color:#aaa;text-decoration:line-through;display:block}
-.pc-btn{background:var(--blue);color:#fff;border:none;padding:8px 16px;border-radius:50px;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.pc-btn{background:var(--blue);color:#fff;border:none;padding:8px 14px;border-radius:50px;font-size:11px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
 .pc-btn:hover{background:#0050dd}
-.dual{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:56px}
-.mb{background:var(--gray);border:1px solid var(--border);border-radius:20px;overflow:hidden;display:grid;grid-template-columns:1fr auto;min-height:200px;transition:all .3s;color:inherit;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.mb:hover{border-color:rgba(26,107,255,.3);transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
-.mb.ga:hover{border-color:rgba(26,140,78,.3)}
-.mb-content{padding:28px 24px;display:flex;flex-direction:column;justify-content:center}
-.mb-tag{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
-.mb.ga .mb-tag{color:var(--green)}
-.mb-title{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:.03em;line-height:1.1;margin-bottom:8px}
-.mb-price{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--green);margin-bottom:14px}
-.mb-price span{font-size:13px;color:#aaa;text-decoration:line-through;margin-left:6px;font-weight:400}
-.mb-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(26,107,255,.1);border:1px solid rgba(26,107,255,.2);color:var(--blue);padding:8px 16px;border-radius:50px;font-size:12px;font-weight:600;width:fit-content}
-.mb.ga .mb-btn{background:rgba(26,140,78,.1);border-color:rgba(26,140,78,.2);color:var(--green)}
-.mb-visual{background:var(--gray);display:flex;align-items:center;justify-content:center;font-size:64px;min-width:160px}
+.loading{text-align:center;padding:80px 20px;color:var(--text2)}
+.loading-dots{display:inline-flex;gap:6px;margin-top:16px}
+.loading-dots span{width:8px;height:8px;border-radius:50%;background:var(--blue);animation:bounce 1.2s infinite}
+.loading-dots span:nth-child(2){animation-delay:.2s}
+.loading-dots span:nth-child(3){animation-delay:.4s}
+@keyframes bounce{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-8px);opacity:1}}
 .why-section{background:var(--gray);border-top:1px solid var(--border)}
-.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:48px}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
 .why-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:28px 24px;transition:all .25s;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.why-card:hover{border-color:rgba(26,107,255,.2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
-.why-icon{width:44px;height:44px;background:rgba(26,107,255,.08);border:1px solid rgba(26,107,255,.15);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
+.why-card:hover{border-color:rgba(26,107,255,.2);transform:translateY(-2px)}
+.why-icon{font-size:28px;margin-bottom:14px}
 .why-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:700;margin-bottom:8px}
 .why-desc{font-size:13px;color:var(--text2);line-height:1.65}
-.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
-.tc{background:#fff;border:1px solid var(--border);border-radius:16px;padding:28px;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-.tc:hover{border-color:rgba(26,107,255,.2);box-shadow:0 8px 24px rgba(0,0,0,.08)}
-.tstars{color:#f59e0b;font-size:14px;letter-spacing:2px;margin-bottom:14px}
-.ttext{font-size:14px;color:var(--text2);line-height:1.75;font-style:italic;font-weight:300;margin-bottom:20px}
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.tc{background:#fff;border:1px solid var(--border);border-radius:16px;padding:28px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.tstars{color:#f59e0b;font-size:14px;letter-spacing:2px;margin-bottom:12px}
+.ttext{font-size:14px;color:var(--text2);line-height:1.75;font-style:italic;margin-bottom:18px}
 .tauthor{display:flex;align-items:center;gap:12px}
 .tavatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--green));display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff}
 .tname{font-size:13.5px;font-weight:600}
 .tcity{font-size:11.5px;color:var(--text2)}
 .cta-section{background:linear-gradient(135deg,#0f172a,#1a2744 50%,#0f2a1a);text-align:center;position:relative;overflow:hidden}
-.cta-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(26,107,255,.15),transparent)}
 .cta-inner{position:relative;max-width:700px;margin:0 auto}
-.ctag{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:24px}
-.ctitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5vw,72px);line-height:1;letter-spacing:.02em;margin-bottom:14px;color:#fff}
+.ctag{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:20px}
+.ctitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5vw,68px);line-height:1;letter-spacing:.02em;margin-bottom:14px;color:#fff}
 .ctitle .hl{color:#4ade80}
-.csub{font-size:17px;color:rgba(255,255,255,.55);font-weight:300;margin-bottom:36px;line-height:1.65}
+.csub{font-size:16px;color:rgba(255,255,255,.55);margin-bottom:32px;line-height:1.65}
 .cactions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .cbtn{background:linear-gradient(135deg,var(--green),#0f6635);color:#fff;padding:15px 36px;border-radius:50px;font-size:16px;font-weight:600;display:inline-flex;align-items:center;gap:10px;transition:all .25s;box-shadow:0 8px 28px rgba(26,140,78,.4)}
 .cbtn:hover{transform:translateY(-2px)}
 .cghost{background:transparent;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.7);padding:15px 28px;border-radius:50px;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
 .cghost:hover{border-color:rgba(255,255,255,.5);color:#fff}
-.cguarantees{display:flex;justify-content:center;gap:24px;margin-top:28px;flex-wrap:wrap}
-.cg{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.45)}
-footer{background:#f8f8f6;border-top:1px solid var(--border);padding:56px 48px 28px}
-.fi{max-width:1100px;margin:0 auto}
-.ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:40px}
+.cguarantees{display:flex;justify-content:center;gap:24px;margin-top:24px;flex-wrap:wrap}
+.cg{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.4)}
+footer{background:#f8f8f6;border-top:1px solid var(--border);padding:52px 48px 28px}
+.fi{max-width:1200px;margin:0 auto}
+.ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:36px}
 .flogo{display:flex;align-items:center;gap:10px;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:.06em;margin-bottom:12px}
 .flogo img{height:34px;width:34px;object-fit:contain}
-.fdesc{font-size:13px;color:var(--text2);line-height:1.7;max-width:240px;margin-bottom:18px}
+.fdesc{font-size:13px;color:var(--text2);line-height:1.7;max-width:240px;margin-bottom:16px}
 .socials{display:flex;gap:10px}
 .social{width:34px;height:34px;background:#fff;border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all .2s}
 .social:hover{border-color:var(--blue)}
@@ -175,62 +98,25 @@ footer{background:#f8f8f6;border-top:1px solid var(--border);padding:56px 48px 2
 .fcol ul li a:hover{color:var(--text)}
 .fbottom{border-top:1px solid var(--border);padding-top:22px;display:flex;justify-content:space-between;align-items:center}
 .fbottom p{font-size:12px;color:#aaa}
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s,transform .7s}
-.reveal.visible{opacity:1;transform:none}
-@media(max-width:900px){nav{padding:0 20px}.nav-links{display:none}section{padding:72px 20px}.hero{padding:90px 20px 60px}.hero-inner{grid-template-columns:1fr}.hero-right{display:none}.trust-bar{gap:20px;padding:12px 20px}.banner{grid-template-columns:1fr}.banner-visual{display:none}.banner-content{padding:32px 24px}.pgrid{grid-template-columns:1fr 1fr}.dual{grid-template-columns:1fr}.cats-grid{grid-template-columns:repeat(3,1fr)}.why-grid{grid-template-columns:1fr 1fr}.tgrid{grid-template-columns:1fr}.ftop{grid-template-columns:1fr 1fr;gap:28px}.fbottom{flex-direction:column;gap:12px;text-align:center}.ph{flex-direction:column;gap:12px;align-items:flex-start}}
-@media(max-width:600px){.cats-grid{grid-template-columns:repeat(2,1fr)}.pgrid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}.ftop{grid-template-columns:1fr}}
+@media(max-width:1024px){.pgrid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){nav{padding:0 20px}.nav-links{display:none}section{padding:60px 20px}.trust-bar{gap:20px;padding:12px 20px}.pgrid{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:1fr 1fr}.tgrid{grid-template-columns:1fr}.ftop{grid-template-columns:1fr 1fr;gap:28px}.fbottom{flex-direction:column;gap:12px;text-align:center}}
+@media(max-width:500px){.pgrid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="announce">🔥 Câmera Wi-Fi 360° com 32% OFF &nbsp;·&nbsp; 🚚 Frete grátis acima de R$ 99 &nbsp;·&nbsp; 💳 12x sem juros</div>
-<nav id="nav">
+<nav>
   <a href="#" class="nav-logo">
     <img src="https://raw.githubusercontent.com/asua-casatech/asua-casatech/main/logo.jpg" onerror="this.style.display='none'" alt="Logo">
     A Sua Casa<span class="g">Tech</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#categorias">Categorias</a></li>
     <li><a href="#produtos">Produtos</a></li>
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="https://wa.me/5521981776868" target="_blank">WhatsApp</a></li>
-    <li><a href="https://asuacasatech.lojavirtualnuvem.com.br" target="_blank" class="nav-cta">Comprar agora</a></li>
+    <li><a href="https://asuacasatech.com.br" target="_blank" class="nav-cta">Comprar agora</a></li>
   </ul>
 </nav>
-<section class="hero">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-badge">🏠 Casa Inteligente · Gadgets · Eletrônicos</div>
-      <h1>A TECNOLOGIA<br>QUE SUA<br><span class="h1-green">CASA</span> <span class="h1-blue">MERECIA</span></h1>
-      <p class="hero-sub">Produtos inteligentes selecionados para transformar cada cômodo. Câmeras Wi-Fi, automação, gadgets e muito mais.</p>
-      <div class="hero-actions">
-        <a href="#produtos" class="btn-primary">Ver produtos →</a>
-        <a href="https://wa.me/5521981776868" target="_blank" class="btn-ghost">💬 Falar no WhatsApp →</a>
-      </div>
-      <div class="hero-stats">
-        <div><div class="stat-num">500<span>+</span></div><div class="stat-label">Lares transformados</div></div>
-        <div><div class="stat-num">4.9<span>★</span></div><div class="stat-label">Avaliação média</div></div>
-        <div><div class="stat-num">12<span>x</span></div><div class="stat-label">Sem juros</div></div>
-      </div>
-    </div>
-    <div class="hero-right">
-      <div class="fbadge tr"><div class="fdot" style="background:var(--green)"></div><span><strong>32 pessoas</strong> compraram hoje</span></div>
-      <div class="hero-card">
-        <div class="hero-card-img">💡</div>
-        <div class="hero-card-body">
-          <div class="htag">🔥 Mais vendido</div>
-          <div class="hname">Sensor de Presença para Lâmpada E27</div>
-          <div class="hdesc">Luz acende sozinha · 360° · até 6m · instala em 30s</div>
-          <div class="hprice-row">
-            <div><span class="hprice">R$ 79</span><span class="hprice-old">R$ 149</span></div>
-            <span class="hbadge">47% OFF</span>
-          </div>
-          <a href="https://asuacasatech.com.br/produtos/soquete-sensor-de-presenca-luz-iluminacao-e27-movimento-360/" target="_blank" class="hbtn" onclick="fbq('track','InitiateCheckout',{value:79,currency:'BRL'})">Comprar agora →</a>
-        </div>
-      </div>
-      <div class="fbadge bl"><div class="fdot" style="background:var(--blue)"></div><span>Entrega em <strong>5 a 12 dias</strong></span></div>
-    </div>
-  </div>
-</section>
 <div class="trust-bar">
   <div class="trust-item">✅ Entrega em <strong>5–12 dias</strong></div>
   <div class="trust-item">🔒 Pagamento <strong>100% seguro</strong></div>
@@ -258,118 +144,48 @@ footer{background:#f8f8f6;border-top:1px solid var(--border);padding:56px 48px 2
     <div class="marquee-item">🏠 Casa mais <strong>inteligente</strong></div>
   </div>
 </div>
-<section>
-  <div class="si">
-    <div class="banner reveal" onclick="window.open('https://asuacasatech.com.br/produtos/soquete-sensor-de-presenca-luz-iluminacao-e27-movimento-360/','_blank');fbq('track','ViewContent',{content_name:'SensorE27'})">
-      <div class="banner-content">
-        <div class="btag">🔥 Mais vendido · Automação</div>
-        <h2 class="btitle">SENSOR DE<br>PRESENÇA <span class="hl">E27</span><br>360° GRAUS</h2>
-        <p class="bdesc">Sua luz acende sozinha quando você chega e apaga quando você sai. Sem apertar interruptor. Sem obras.</p>
-        <ul class="bfeatures">
-          <li>Detecção 360° até 6 metros</li>
-          <li>Encaixa direto no bocal E27 padrão</li>
-          <li>Instala em 30 segundos sem ferramentas</li>
-          <li>Funciona só no escuro — economiza energia</li>
-        </ul>
-        <div class="bprice-row">
-          <span class="bprice">R$ 79</span>
-          <span class="bprice-old">R$ 149</span>
-          <span class="bbadge">47% OFF</span>
-        </div>
-        <div class="bcta-row">
-          <a href="https://asuacasatech.com.br/produtos/soquete-sensor-de-presenca-luz-iluminacao-e27-movimento-360/" target="_blank" class="bbtn" onclick="event.stopPropagation();fbq('track','InitiateCheckout',{value:79,currency:'BRL'})">Comprar agora →</a>
-          <a href="https://wa.me/5521981776868" target="_blank" class="bghost" onclick="event.stopPropagation()">💬 Tirar dúvidas →</a>
-        </div>
-      </div>
-      <div class="banner-visual">💡<div class="urgency"><span class="udot"></span><strong>15 unidades</strong> restantes</div></div>
-    </div>
-  </div>
-</section>
-<section class="cats-section" id="categorias">
-  <div class="si">
-    <div class="reveal"><div class="slabel">Explorar</div><h2 class="stitle">ENCONTRE O QUE<br>SUA CASA PRECISA</h2></div>
-    <div class="cats-grid reveal">
-      <a href="#produtos" class="cat-card"><span class="cat-icon">🏠</span><div class="cat-name">Automação</div><div class="cat-count">Interruptores e tomadas</div></a>
-      <a href="#produtos" class="cat-card"><span class="cat-icon">📷</span><div class="cat-name">Segurança</div><div class="cat-count">Câmeras e sensores</div></a>
-      <a href="#produtos" class="cat-card"><span class="cat-icon">🎵</span><div class="cat-name">Áudio</div><div class="cat-count">Fones e caixas de som</div></a>
-      <a href="#produtos" class="cat-card"><span class="cat-icon">⌚</span><div class="cat-name">Wearables</div><div class="cat-count">Smartwatches</div></a>
-      <a href="#produtos" class="cat-card"><span class="cat-icon">🍳</span><div class="cat-name">Cozinha & Pet</div><div class="cat-count">Gadgets práticos</div></a>
-    </div>
-  </div>
-</section>
 <section id="produtos">
   <div class="si">
-    <div class="ph reveal">
-      <div><div class="slabel">Catálogo</div><h2 class="stitle">OS MAIS PEDIDOS</h2></div>
-      <a href="https://asuacasatech.lojavirtualnuvem.com.br" target="_blank" style="font-size:14px;color:var(--blue);font-weight:600">Ver todos →</a>
+    <div class="ph">
+      <div><div class="slabel">Catálogo completo</div><h2 class="stitle">TODOS OS PRODUTOS</h2></div>
+      <a href="https://asuacasatech.com.br" target="_blank" style="font-size:14px;color:var(--blue);font-weight:600">Ver loja completa →</a>
     </div>
-    <div class="pgrid">
-      <a href="https://asuacasatech.com.br/produtos/soquete-sensor-de-presenca-luz-iluminacao-e27-movimento-360/" target="_blank" class="pc reveal" onclick="fbq('track','AddToCart',{value:79,currency:'BRL'})">
-        <div class="pc-img">💡<div class="pc-tag green">🔥 Hot</div></div>
-        <div class="pc-body"><div class="pc-name">Sensor de Presença Lâmpada E27 360°</div><div class="pc-desc">Luz acende sozinha · até 6m · bocal E27</div><div class="pc-footer"><div><span class="pc-price-old">R$ 149</span><span class="pc-price">R$ 79</span></div><button class="pc-btn">Comprar</button></div></div>
-      </a>
-      <a href="https://asuacasatech.com.br/produtos/caixa-de-som-beats-portatil-bluetooth/" target="_blank" class="pc reveal" onclick="fbq('track','AddToCart',{value:247,currency:'BRL'})">
-        <div class="pc-img">🔊<div class="pc-tag red">Sale</div></div>
-        <div class="pc-body"><div class="pc-name">Caixa de Som BEATS RGB Bluetooth</div><div class="pc-desc">LED RGB · graves potentes · portátil · microfone</div><div class="pc-footer"><div><span class="pc-price-old">R$ 499</span><span class="pc-price">R$ 247</span></div><button class="pc-btn">Comprar</button></div></div>
-      </a>
-      <a href="https://asuacasatech.com.br/produtos/microfone-lapela-sem-fio-mcf18/" target="_blank" class="pc reveal" onclick="fbq('track','AddToCart',{value:149,currency:'BRL'})">
-        <div class="pc-img">🎙️<div class="pc-tag blue">Novo</div></div>
-        <div class="pc-body"><div class="pc-name">Microfone Sem Fio MCF18 para Celular</div><div class="pc-desc">USB-C · Lightning · redução de ruído · creators</div><div class="pc-footer"><div><span class="pc-price-old">R$ 229</span><span class="pc-price">R$ 149</span></div><button class="pc-btn">Comprar</button></div></div>
-      </a>
-      <a href="https://asuacasatech.com.br/produtos/camera-de-seguranca-ipega-wifi-lampada-rotacao-visao-noturna-kp-ca187/" target="_blank" class="pc reveal" onclick="fbq('track','AddToCart',{value:169,currency:'BRL'})">
-        <div class="pc-img">📷<div class="pc-tag green">Top</div></div>
-        <div class="pc-body"><div class="pc-name">Câmera Wi-Fi 360° Visão Noturna E27</div><div class="pc-desc">Full HD · detecção de movimento · App Yoosee</div><div class="pc-footer"><div><span class="pc-price-old">R$ 249</span><span class="pc-price">R$ 169</span></div><button class="pc-btn">Comprar</button></div></div>
-      </a>
-      <a href="https://asuacasatech.com.br/produtos/smartwatch-pro-max/" target="_blank" class="pc reveal" onclick="fbq('track','AddToCart',{value:219,currency:'BRL'})">
-        <div class="pc-img">⌚<div class="pc-tag blue">Novo</div></div>
-        <div class="pc-body"><div class="pc-name">Smartwatch Pro Max Monitor Cardíaco SpO2</div><div class="pc-desc">7 dias bateria · Android & iOS · 100+ modos</div><div class="pc-footer"><div><span class="pc-price-old">R$ 399</span><span class="pc-price">R$ 219</span></div><button class="pc-btn">Comprar</button></div></div>
-      </a>
-      <a href="https://asuacasatech.com.br/produtos/headfone-bluetooth/" target="_blank" class="pc reveal" onclick="fbq('track','AddToCart',{value:149,currency:'BRL'})">
-        <div class="pc-img">🎧<div class="pc-tag blue">Top</div></div>
-        <div class="pc-body"><div class="pc-name">Headfone Bluetooth 5.0 · 30h de Bateria</div><div class="pc-desc">Microfone HD · dobrável · conforto premium</div><div class="pc-footer"><div><span class="pc-price-old">R$ 249</span><span class="pc-price">R$ 149</span></div><button class="pc-btn">Comprar</button></div></div>
-      </a>
-    </div>
-    <div class="dual">
-      <a href="https://asuacasatech.com.br/produtos/caixa-de-som-beats-portatil-bluetooth/" target="_blank" class="mb reveal" onclick="fbq('track','AddToCart',{value:247,currency:'BRL'})">
-        <div class="mb-content"><div class="mb-tag">🔊 Destaque</div><div class="mb-title">CAIXA SOM<br>BEATS RGB</div><div class="mb-price">R$ 247 <span>R$ 499</span></div><div class="mb-btn">Comprar agora →</div></div>
-        <div class="mb-visual">🔊</div>
-      </a>
-      <a href="https://asuacasatech.com.br/produtos/soquete-sensor-de-presenca-luz-iluminacao-e27-movimento-360/" target="_blank" class="mb ga reveal" onclick="fbq('track','AddToCart',{value:79,currency:'BRL'})">
-        <div class="mb-content"><div class="mb-tag">💡 Automação</div><div class="mb-title">SENSOR<br>PRESENÇA E27</div><div class="mb-price">R$ 79 <span>R$ 149</span></div><div class="mb-btn">Comprar agora →</div></div>
-        <div class="mb-visual">💡</div>
-      </a>
+    <div id="products-grid" class="pgrid">
+      <div class="loading" style="grid-column:1/-1">
+        <p style="font-size:16px;font-weight:500">Carregando produtos...</p>
+        <div class="loading-dots"><span></span><span></span><span></span></div>
+      </div>
     </div>
   </div>
 </section>
 <section class="why-section" id="sobre">
   <div class="si">
-    <div class="reveal" style="text-align:center;max-width:500px;margin:0 auto"><div class="slabel">Por que a gente</div><h2 class="stitle">TECNOLOGIA<br>SEM COMPLICAÇÃO</h2></div>
+    <div style="text-align:center;max-width:500px;margin:0 auto 0"><div class="slabel">Por que a gente</div><h2 class="stitle">TECNOLOGIA SEM<br>COMPLICAÇÃO</h2></div>
     <div class="why-grid">
-      <div class="why-card reveal"><div class="why-icon">🎯</div><div class="why-title">Curadoria rigorosa</div><div class="why-desc">Só entra no catálogo o que funciona de verdade.</div></div>
-      <div class="why-card reveal"><div class="why-icon">🚀</div><div class="why-title">Entrega rápida</div><div class="why-desc">Fornecedores nacionais. 5 a 12 dias com rastreamento.</div></div>
-      <div class="why-card reveal"><div class="why-icon">🔒</div><div class="why-title">Compra segura</div><div class="why-desc">Pix, cartão 12x e boleto. 100% protegido.</div></div>
-      <div class="why-card reveal"><div class="why-icon">💬</div><div class="why-title">Suporte humano</div><div class="why-desc">WhatsApp com resposta em minutos.</div></div>
+      <div class="why-card"><div class="why-icon">🎯</div><div class="why-title">Curadoria rigorosa</div><div class="why-desc">Só entra no catálogo o que funciona de verdade. Cada produto é testado antes.</div></div>
+      <div class="why-card"><div class="why-icon">🚀</div><div class="why-title">Entrega rápida</div><div class="why-desc">Fornecedores nacionais. 5 a 12 dias com rastreamento em tempo real.</div></div>
+      <div class="why-card"><div class="why-icon">🔒</div><div class="why-title">Compra segura</div><div class="why-desc">Pix, cartão 12x e boleto. Processado pelo Nuvem Pago — 100% protegido.</div></div>
+      <div class="why-card"><div class="why-icon">💬</div><div class="why-title">Suporte humano</div><div class="why-desc">WhatsApp com resposta em minutos. Atendimento real — não robô.</div></div>
     </div>
   </div>
 </section>
 <section>
   <div class="si">
-    <div class="reveal"><div class="slabel">Avaliações</div><h2 class="stitle">O QUE DIZEM<br>NOSSOS CLIENTES</h2></div>
+    <div><div class="slabel">Avaliações</div><h2 class="stitle">O QUE DIZEM<br>NOSSOS CLIENTES</h2></div>
     <div class="tgrid">
-      <div class="tc reveal"><div class="tstars">★★★★★</div><p class="ttext">"A câmera Wi-Fi chegou em 7 dias e instalei em menos de 1 minuto. Incrível ver minha casa pelo celular!"</p><div class="tauthor"><div class="tavatar">MC</div><div><div class="tname">Mariana Costa</div><div class="tcity">São Paulo, SP</div></div></div></div>
-      <div class="tc reveal"><div class="tstars">★★★★★</div><p class="ttext">"O smartwatch é sensacional. Monitor cardíaco preciso e bateria de 7 dias real!"</p><div class="tauthor"><div class="tavatar">RS</div><div><div class="tname">Rafael Souza</div><div class="tcity">Curitiba, PR</div></div></div></div>
-      <div class="tc reveal"><div class="tstars">★★★★★</div><p class="ttext">"O sensor de presença transformou meu corredor. Luz acende sozinha! Atendimento nota 10!"</p><div class="tauthor"><div class="tavatar">AL</div><div><div class="tname">Ana Lima</div><div class="tcity">Belo Horizonte, MG</div></div></div></div>
+      <div class="tc"><div class="tstars">★★★★★</div><p class="ttext">"A câmera Wi-Fi chegou em 7 dias e instalei em menos de 1 minuto. Incrível ver minha casa pelo celular!"</p><div class="tauthor"><div class="tavatar">MC</div><div><div class="tname">Mariana Costa</div><div class="tcity">São Paulo, SP</div></div></div></div>
+      <div class="tc"><div class="tstars">★★★★★</div><p class="ttext">"O smartwatch é sensacional. Monitor cardíaco preciso e bateria de 7 dias real!"</p><div class="tauthor"><div class="tavatar">RS</div><div><div class="tname">Rafael Souza</div><div class="tcity">Curitiba, PR</div></div></div></div>
+      <div class="tc"><div class="tstars">★★★★★</div><p class="ttext">"O sensor de presença transformou meu corredor. Luz acende sozinha! Atendimento nota 10!"</p><div class="tauthor"><div class="tavatar">AL</div><div><div class="tname">Ana Lima</div><div class="tcity">Belo Horizonte, MG</div></div></div></div>
     </div>
   </div>
 </section>
 <section class="cta-section">
-  <div class="cta-bg"></div>
-  <div class="cta-inner reveal">
+  <div class="cta-inner">
     <div class="ctag">🏠 Mais de 500 lares transformados</div>
-    <h2 class="ctitle">PRONTO PARA<br>UMA CASA MAIS<br><span class="hl">INTELIGENTE?</span></h2>
+    <h2 class="ctitle">PRONTO PARA UMA<br>CASA MAIS <span class="hl">INTELIGENTE?</span></h2>
     <p class="csub">Explore o catálogo completo. Frete grátis acima de R$ 99.</p>
     <div class="cactions">
-      <a href="https://asuacasatech.lojavirtualnuvem.com.br" target="_blank" class="cbtn">🛒 Ver todos os produtos →</a>
+      <a href="https://asuacasatech.com.br" target="_blank" class="cbtn">🛒 Ver todos os produtos →</a>
       <a href="https://wa.me/5521981776868" target="_blank" class="cghost">💬 Falar no WhatsApp</a>
     </div>
     <div class="cguarantees">
@@ -391,7 +207,7 @@ footer{background:#f8f8f6;border-top:1px solid var(--border);padding:56px 48px 2
           <a href="https://wa.me/5521981776868" target="_blank" class="social">💬</a>
         </div>
       </div>
-      <div class="fcol"><h5>Categorias</h5><ul><li><a href="#categorias">Automação</a></li><li><a href="#categorias">Segurança</a></li><li><a href="#categorias">Áudio</a></li><li><a href="#categorias">Wearables</a></li></ul></div>
+      <div class="fcol"><h5>Produtos</h5><ul><li><a href="#produtos">Automação</a></li><li><a href="#produtos">Segurança</a></li><li><a href="#produtos">Áudio</a></li><li><a href="#produtos">Wearables</a></li></ul></div>
       <div class="fcol"><h5>Ajuda</h5><ul><li><a href="#">Como comprar</a></li><li><a href="#">Trocas</a></li><li><a href="https://wa.me/5521981776868" target="_blank">WhatsApp</a></li></ul></div>
       <div class="fcol"><h5>Empresa</h5><ul><li><a href="#sobre">Sobre nós</a></li><li><a href="https://instagram.com/asua.casatech" target="_blank">@asua.casatech</a></li></ul></div>
     </div>
@@ -402,9 +218,35 @@ footer{background:#f8f8f6;border-top:1px solid var(--border);padding:56px 48px 2
   </div>
 </footer>
 <script>
-const obs=new IntersectionObserver((e)=>{e.forEach((el,i)=>{if(el.isIntersecting){setTimeout(()=>el.target.classList.add('visible'),i*80);obs.unobserve(el.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-document.querySelectorAll('.pc-btn').forEach(btn=>{btn.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();if(typeof fbq!=='undefined')fbq('track','AddToCart');const card=btn.closest('a');if(card)window.open(card.href,'_blank')})});
+async function loadProducts() {
+  const grid = document.getElementById('products-grid');
+  try {
+    const res = await fetch('/api/products');
+    const { products } = await res.json();
+    if (!products?.length) throw new Error('Sem produtos');
+    grid.innerHTML = products.map(p => {
+      const price = parseFloat(p.price || 0).toLocaleString('pt-BR', {minimumFractionDigits:2});
+      const compare = p.compare && parseFloat(p.compare) > parseFloat(p.price)
+        ? `<span class="pc-price-old">R$ ${parseFloat(p.compare).toLocaleString('pt-BR',{minimumFractionDigits:2})}</span>` : '';
+      const img = p.image
+        ? `<img src="${p.image}" alt="${p.name}" loading="lazy">`
+        : `<span class="emoji">🏠</span>`;
+      return `<a href="${p.url}" target="_blank" class="pc" onclick="if(typeof fbq!=='undefined')fbq('track','ViewContent',{value:${p.price},currency:'BRL'})">
+        <div class="pc-img">${img}<div class="pc-tag">✨ Oferta</div></div>
+        <div class="pc-body">
+          <div class="pc-name">${p.name}</div>
+          <div class="pc-footer">
+            <div>${compare}<span class="pc-price">R$ ${price}</span></div>
+            <button class="pc-btn" onclick="event.preventDefault();event.stopPropagation();if(typeof fbq!=='undefined')fbq('track','AddToCart',{value:${p.price},currency:'BRL'});window.open('${p.url}','_blank')">Comprar</button>
+          </div>
+        </div>
+      </a>`;
+    }).join('');
+  } catch(e) {
+    grid.innerHTML = '<div class="loading" style="grid-column:1/-1"><p>Erro ao carregar produtos. <a href="https://asuacasatech.com.br" style="color:var(--blue)">Ver loja →</a></p></div>';
+  }
+}
+loadProducts();
 </script>
 </body>
 </html>
