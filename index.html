@@ -33,27 +33,24 @@ section{padding:80px 48px}
 .slabel{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
 .stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,52px);line-height:1;letter-spacing:.02em;margin-bottom:32px;color:var(--text)}
 .ph{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px}
-.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .pc{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:all .3s;display:block;color:inherit;box-shadow:0 2px 12px rgba(0,0,0,.05)}
 .pc:hover{transform:translateY(-6px);border-color:rgba(26,107,255,.3);box-shadow:0 20px 48px rgba(0,0,0,.12)}
-.pc-img{height:200px;overflow:hidden;position:relative;background:var(--gray);display:flex;align-items:center;justify-content:center}
+.pc-img{height:220px;overflow:hidden;position:relative;background:var(--gray);display:flex;align-items:center;justify-content:center}
 .pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
 .pc:hover .pc-img img{transform:scale(1.05)}
-.pc-img .emoji{font-size:72px}
-.pc-tag{position:absolute;top:10px;left:10px;padding:3px 10px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:rgba(26,140,78,.15);color:var(--green);border:1px solid rgba(26,140,78,.2)}
-.pc-body{padding:16px}
-.pc-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:4px;line-height:1.3;color:var(--text)}
-.pc-footer{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
-.pc-price{font-family:'Syne',sans-serif;font-size:19px;font-weight:800;color:var(--green)}
+.pc-tag{position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+.pc-tag.green{background:rgba(26,140,78,.15);color:var(--green);border:1px solid rgba(26,140,78,.2)}
+.pc-tag.blue{background:rgba(26,107,255,.15);color:var(--blue);border:1px solid rgba(26,107,255,.2)}
+.pc-tag.red{background:rgba(255,68,68,.12);color:#e53e3e;border:1px solid rgba(255,68,68,.2)}
+.pc-body{padding:18px}
+.pc-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px;line-height:1.3;color:var(--text)}
+.pc-desc{font-size:12px;color:var(--text2);margin-bottom:14px;line-height:1.5}
+.pc-footer{display:flex;justify-content:space-between;align-items:center}
+.pc-price{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--green)}
 .pc-price-old{font-size:11px;color:#aaa;text-decoration:line-through;display:block}
-.pc-btn{background:var(--blue);color:#fff;border:none;padding:8px 14px;border-radius:50px;font-size:11px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.pc-btn{background:var(--blue);color:#fff;border:none;padding:9px 16px;border-radius:50px;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
 .pc-btn:hover{background:#0050dd}
-.loading{text-align:center;padding:80px 20px;color:var(--text2)}
-.loading-dots{display:inline-flex;gap:6px;margin-top:16px}
-.loading-dots span{width:8px;height:8px;border-radius:50%;background:var(--blue);animation:bounce 1.2s infinite}
-.loading-dots span:nth-child(2){animation-delay:.2s}
-.loading-dots span:nth-child(3){animation-delay:.4s}
-@keyframes bounce{0%,100%{transform:translateY(0);opacity:.4}50%{transform:translateY(-8px);opacity:1}}
 .why-section{background:var(--gray);border-top:1px solid var(--border)}
 .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
 .why-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:28px 24px;transition:all .25s;box-shadow:0 2px 8px rgba(0,0,0,.04)}
@@ -79,7 +76,7 @@ section{padding:80px 48px}
 .cbtn{background:linear-gradient(135deg,var(--green),#0f6635);color:#fff;padding:15px 36px;border-radius:50px;font-size:16px;font-weight:600;display:inline-flex;align-items:center;gap:10px;transition:all .25s;box-shadow:0 8px 28px rgba(26,140,78,.4)}
 .cbtn:hover{transform:translateY(-2px)}
 .cghost{background:transparent;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.7);padding:15px 28px;border-radius:50px;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
-.cghost:hover{border-color:rgba(255,255,255,.5);color:#fff}
+.cghost:hover{color:#fff}
 .cguarantees{display:flex;justify-content:center;gap:24px;margin-top:24px;flex-wrap:wrap}
 .cg{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.4)}
 footer{background:#f8f8f6;border-top:1px solid var(--border);padding:52px 48px 28px}
@@ -98,9 +95,8 @@ footer{background:#f8f8f6;border-top:1px solid var(--border);padding:52px 48px 2
 .fcol ul li a:hover{color:var(--text)}
 .fbottom{border-top:1px solid var(--border);padding-top:22px;display:flex;justify-content:space-between;align-items:center}
 .fbottom p{font-size:12px;color:#aaa}
-@media(max-width:1024px){.pgrid{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:900px){nav{padding:0 20px}.nav-links{display:none}section{padding:60px 20px}.trust-bar{gap:20px;padding:12px 20px}.pgrid{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:1fr 1fr}.tgrid{grid-template-columns:1fr}.ftop{grid-template-columns:1fr 1fr;gap:28px}.fbottom{flex-direction:column;gap:12px;text-align:center}}
-@media(max-width:500px){.pgrid{grid-template-columns:1fr}}
+@media(max-width:900px){nav{padding:0 20px}.nav-links{display:none}section{padding:60px 20px}.trust-bar{gap:20px;padding:12px 20px}.pgrid{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:1fr 1fr}.tgrid{grid-template-columns:1fr}.ftop{grid-template-columns:1fr 1fr;gap:28px}.fbottom{flex-direction:column;gap:12px;text-align:center}}
+@media(max-width:500px){.pgrid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -114,7 +110,7 @@ footer{background:#f8f8f6;border-top:1px solid var(--border);padding:52px 48px 2
     <li><a href="#produtos">Produtos</a></li>
     <li><a href="#sobre">Sobre</a></li>
     <li><a href="https://wa.me/5521981776868" target="_blank">WhatsApp</a></li>
-    <li><a href="https://asuacasatech.com.br" target="_blank" class="nav-cta">Comprar agora</a></li>
+    <li><a href="https://asuacasatech.com.br" target="_blank" class="nav-cta">Ver loja completa</a></li>
   </ul>
 </nav>
 <div class="trust-bar">
@@ -147,25 +143,45 @@ footer{background:#f8f8f6;border-top:1px solid var(--border);padding:52px 48px 2
 <section id="produtos">
   <div class="si">
     <div class="ph">
-      <div><div class="slabel">Catálogo completo</div><h2 class="stitle">TODOS OS PRODUTOS</h2></div>
+      <div><div class="slabel">Catálogo</div><h2 class="stitle">OS MAIS PEDIDOS</h2></div>
       <a href="https://asuacasatech.com.br" target="_blank" style="font-size:14px;color:var(--blue);font-weight:600">Ver loja completa →</a>
     </div>
-    <div id="products-grid" class="pgrid">
-      <div class="loading" style="grid-column:1/-1">
-        <p style="font-size:16px;font-weight:500">Carregando produtos...</p>
-        <div class="loading-dots"><span></span><span></span><span></span></div>
-      </div>
+    <div class="pgrid">
+      <a href="https://asuacasatech.com.br/produtos/soquete-sensor-de-presenca-luz-iluminacao-e27-movimento-360/" target="_blank" class="pc" onclick="fbq('track','ViewContent',{value:79,currency:'BRL'})">
+        <div class="pc-img"><img src="https://http2.mlstatic.com/D_NQ_NP_780964-MLU79665988109_102024-O.webp" alt="Sensor E27" onerror="this.src='https://via.placeholder.com/400x300?text=Sensor+E27'"><div class="pc-tag green">🔥 Hot</div></div>
+        <div class="pc-body"><div class="pc-name">Sensor de Presença Lâmpada E27 360°</div><div class="pc-desc">Luz acende sozinha · detecção até 6m · bocal E27 · instala em 30s</div><div class="pc-footer"><div><span class="pc-price-old">R$ 149,00</span><span class="pc-price">R$ 79,00</span></div><button class="pc-btn" onclick="event.preventDefault();event.stopPropagation();fbq('track','AddToCart',{value:79,currency:'BRL'});window.open(this.closest('a').href,'_blank')">Comprar</button></div></div>
+      </a>
+      <a href="https://asuacasatech.com.br/produtos/camera-de-seguranca-ipega-wifi-lampada-rotacao-visao-noturna-kp-ca187/" target="_blank" class="pc" onclick="fbq('track','ViewContent',{value:169,currency:'BRL'})">
+        <div class="pc-img"><img src="https://http2.mlstatic.com/D_NQ_NP_617411-MLU77771069423_072024-O.webp" alt="Câmera WiFi 360" onerror="this.src='https://via.placeholder.com/400x300?text=Camera+WiFi'"><div class="pc-tag green">Top</div></div>
+        <div class="pc-body"><div class="pc-name">Câmera Wi-Fi 360° Visão Noturna E27</div><div class="pc-desc">Full HD · detecção de movimento · App Yoosee · áudio bidirecional</div><div class="pc-footer"><div><span class="pc-price-old">R$ 249,00</span><span class="pc-price">R$ 169,00</span></div><button class="pc-btn" onclick="event.preventDefault();event.stopPropagation();fbq('track','AddToCart',{value:169,currency:'BRL'});window.open(this.closest('a').href,'_blank')">Comprar</button></div></div>
+      </a>
+      <a href="https://asuacasatech.com.br/produtos/microfone-lapela-sem-fio-mcf18/" target="_blank" class="pc" onclick="fbq('track','ViewContent',{value:149,currency:'BRL'})">
+        <div class="pc-img"><img src="https://http2.mlstatic.com/D_NQ_NP_715163-MLU76800636720_062024-O.webp" alt="Microfone MCF18" onerror="this.src='https://via.placeholder.com/400x300?text=Microfone'"><div class="pc-tag blue">Novo</div></div>
+        <div class="pc-body"><div class="pc-name">Microfone Sem Fio MCF18 para Celular</div><div class="pc-desc">USB-C · Lightning · redução de ruído · ideal para creators</div><div class="pc-footer"><div><span class="pc-price-old">R$ 229,00</span><span class="pc-price">R$ 149,00</span></div><button class="pc-btn" onclick="event.preventDefault();event.stopPropagation();fbq('track','AddToCart',{value:149,currency:'BRL'});window.open(this.closest('a').href,'_blank')">Comprar</button></div></div>
+      </a>
+      <a href="https://asuacasatech.com.br/produtos/caixa-de-som-beats-portatil-bluetooth/" target="_blank" class="pc" onclick="fbq('track','ViewContent',{value:247,currency:'BRL'})">
+        <div class="pc-img"><img src="https://http2.mlstatic.com/D_NQ_NP_824914-MLU74557993655_022024-O.webp" alt="Caixa de Som BEATS" onerror="this.src='https://via.placeholder.com/400x300?text=Caixa+BEATS'"><div class="pc-tag red">Sale</div></div>
+        <div class="pc-body"><div class="pc-name">Caixa de Som BEATS RGB Bluetooth</div><div class="pc-desc">LED RGB · graves potentes · portátil · microfone integrado</div><div class="pc-footer"><div><span class="pc-price-old">R$ 499,00</span><span class="pc-price">R$ 247,00</span></div><button class="pc-btn" onclick="event.preventDefault();event.stopPropagation();fbq('track','AddToCart',{value:247,currency:'BRL'});window.open(this.closest('a').href,'_blank')">Comprar</button></div></div>
+      </a>
+      <a href="https://asuacasatech.com.br/produtos/smartwatch-pro-max/" target="_blank" class="pc" onclick="fbq('track','ViewContent',{value:219,currency:'BRL'})">
+        <div class="pc-img"><img src="https://http2.mlstatic.com/D_NQ_NP_773174-MLU73983800461_012024-O.webp" alt="Smartwatch" onerror="this.src='https://via.placeholder.com/400x300?text=Smartwatch'"><div class="pc-tag blue">Novo</div></div>
+        <div class="pc-body"><div class="pc-name">Smartwatch Pro Max Monitor Cardíaco SpO2</div><div class="pc-desc">7 dias bateria · Android & iOS · 100+ modos esportivos</div><div class="pc-footer"><div><span class="pc-price-old">R$ 399,00</span><span class="pc-price">R$ 219,00</span></div><button class="pc-btn" onclick="event.preventDefault();event.stopPropagation();fbq('track','AddToCart',{value:219,currency:'BRL'});window.open(this.closest('a').href,'_blank')">Comprar</button></div></div>
+      </a>
+      <a href="https://asuacasatech.com.br/produtos/headfone-bluetooth/" target="_blank" class="pc" onclick="fbq('track','ViewContent',{value:149,currency:'BRL'})">
+        <div class="pc-img"><img src="https://http2.mlstatic.com/D_NQ_NP_786755-MLU72448879861_102023-O.webp" alt="Headfone Bluetooth" onerror="this.src='https://via.placeholder.com/400x300?text=Headfone'"><div class="pc-tag blue">Top</div></div>
+        <div class="pc-body"><div class="pc-name">Headfone Bluetooth 5.0 · 30h de Bateria</div><div class="pc-desc">Microfone HD · dobrável · cancelamento de ruído · conforto premium</div><div class="pc-footer"><div><span class="pc-price-old">R$ 249,00</span><span class="pc-price">R$ 149,00</span></div><button class="pc-btn" onclick="event.preventDefault();event.stopPropagation();fbq('track','AddToCart',{value:149,currency:'BRL'});window.open(this.closest('a').href,'_blank')">Comprar</button></div></div>
+      </a>
     </div>
   </div>
 </section>
 <section class="why-section" id="sobre">
   <div class="si">
-    <div style="text-align:center;max-width:500px;margin:0 auto 0"><div class="slabel">Por que a gente</div><h2 class="stitle">TECNOLOGIA SEM<br>COMPLICAÇÃO</h2></div>
+    <div style="text-align:center;max-width:500px;margin:0 auto"><div class="slabel">Por que a gente</div><h2 class="stitle">TECNOLOGIA SEM<br>COMPLICAÇÃO</h2></div>
     <div class="why-grid">
-      <div class="why-card"><div class="why-icon">🎯</div><div class="why-title">Curadoria rigorosa</div><div class="why-desc">Só entra no catálogo o que funciona de verdade. Cada produto é testado antes.</div></div>
-      <div class="why-card"><div class="why-icon">🚀</div><div class="why-title">Entrega rápida</div><div class="why-desc">Fornecedores nacionais. 5 a 12 dias com rastreamento em tempo real.</div></div>
-      <div class="why-card"><div class="why-icon">🔒</div><div class="why-title">Compra segura</div><div class="why-desc">Pix, cartão 12x e boleto. Processado pelo Nuvem Pago — 100% protegido.</div></div>
-      <div class="why-card"><div class="why-icon">💬</div><div class="why-title">Suporte humano</div><div class="why-desc">WhatsApp com resposta em minutos. Atendimento real — não robô.</div></div>
+      <div class="why-card"><div class="why-icon">🎯</div><div class="why-title">Curadoria rigorosa</div><div class="why-desc">Só entra no catálogo o que funciona de verdade.</div></div>
+      <div class="why-card"><div class="why-icon">🚀</div><div class="why-title">Entrega rápida</div><div class="why-desc">Fornecedores nacionais. 5 a 12 dias com rastreamento.</div></div>
+      <div class="why-card"><div class="why-icon">🔒</div><div class="why-title">Compra segura</div><div class="why-desc">Pix, cartão 12x e boleto. 100% protegido.</div></div>
+      <div class="why-card"><div class="why-icon">💬</div><div class="why-title">Suporte humano</div><div class="why-desc">WhatsApp com resposta em minutos.</div></div>
     </div>
   </div>
 </section>
@@ -218,35 +234,14 @@ footer{background:#f8f8f6;border-top:1px solid var(--border);padding:52px 48px 2
   </div>
 </footer>
 <script>
-async function loadProducts() {
-  const grid = document.getElementById('products-grid');
-  try {
-    const res = await fetch('/api/products');
-    const { products } = await res.json();
-    if (!products?.length) throw new Error('Sem produtos');
-    grid.innerHTML = products.map(p => {
-      const price = parseFloat(p.price || 0).toLocaleString('pt-BR', {minimumFractionDigits:2});
-      const compare = p.compare && parseFloat(p.compare) > parseFloat(p.price)
-        ? `<span class="pc-price-old">R$ ${parseFloat(p.compare).toLocaleString('pt-BR',{minimumFractionDigits:2})}</span>` : '';
-      const img = p.image
-        ? `<img src="${p.image}" alt="${p.name}" loading="lazy">`
-        : `<span class="emoji">🏠</span>`;
-      return `<a href="${p.url}" target="_blank" class="pc" onclick="if(typeof fbq!=='undefined')fbq('track','ViewContent',{value:${p.price},currency:'BRL'})">
-        <div class="pc-img">${img}<div class="pc-tag">✨ Oferta</div></div>
-        <div class="pc-body">
-          <div class="pc-name">${p.name}</div>
-          <div class="pc-footer">
-            <div>${compare}<span class="pc-price">R$ ${price}</span></div>
-            <button class="pc-btn" onclick="event.preventDefault();event.stopPropagation();if(typeof fbq!=='undefined')fbq('track','AddToCart',{value:${p.price},currency:'BRL'});window.open('${p.url}','_blank')">Comprar</button>
-          </div>
-        </div>
-      </a>`;
-    }).join('');
-  } catch(e) {
-    grid.innerHTML = '<div class="loading" style="grid-column:1/-1"><p>Erro ao carregar produtos. <a href="https://asuacasatech.com.br" style="color:var(--blue)">Ver loja →</a></p></div>';
-  }
-}
-loadProducts();
+document.querySelectorAll('.pc-btn').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    e.preventDefault();e.stopPropagation();
+    if(typeof fbq!=='undefined')fbq('track','AddToCart');
+    const card=btn.closest('a');
+    if(card)window.open(card.href,'_blank');
+  });
+});
 </script>
 </body>
 </html>
