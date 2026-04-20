@@ -14,12 +14,17 @@ export default async function handler(req, res) {
     if (!r.ok) throw new Error(`Status ${r.status}`);
     const data = await r.json();
     const products = (Array.isArray(data) ? data : []).map(p => {
-      const handle = typeof p.handle === 'string' ? p.handle : String(p.id);
+      const h = p.handle;
+      const handle = typeof h === 'string' ? h : (h?.pt || h?.['pt-BR'] || Object.values(h || {})[0] || String(p.id));
+      const promoPrice = p.variants?.[0]?.promotional_price;
+      const regularPrice = p.variants?.[0]?.price || p.price || '0';
+      const price = promoPrice && parseFloat(promoPrice) < parseFloat(regularPrice) ? promoPrice : regularPrice;
+      const compare = promoPrice && parseFloat(promoPrice) < parseFloat(regularPrice) ? regularPrice : (p.compare_at_price || '');
       return {
         id: p.id,
         name: p.name?.pt || p.name?.['pt-BR'] || Object.values(p.name || {})[0] || '',
-        price: p.variants?.[0]?.promotional_price || p.variants?.[0]?.price || p.price || '0',
-        compare: p.variants?.[0]?.price || p.compare_at_price || '',
+        price,
+        compare,
         image: p.images?.[0]?.src || '',
         url: `https://asuacasatech.com.br/produtos/${handle}`
       };
