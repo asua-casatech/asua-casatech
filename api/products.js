@@ -1,7 +1,7 @@
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Cache-Control', 's-maxage=300');
-  const STORE_ID = '7555109';
+  const STORE_ID = '6757760';
   const TOKEN = '9f5da7e66cb1694f93cb398d88eb03a935126ad0';
   const page = req.query.page || 1;
   try {
