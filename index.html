@@ -397,9 +397,17 @@ async function loadProducts() {
       const res = await fetch(`/api/products?page=${page}`);
       if (!res.ok) throw new Error(`API error ${res.status}`);
       const data = await res.json();
-      if (!Array.isArray(data) || data.length === 0) break;
-      allProducts = allProducts.concat(data);
-      if (data.length < 200) break;
+const prods = data.products || [];
+if (prods.length === 0) break;
+prods.forEach(p => allProducts.push({
+  name: { pt: p.name },
+  price: p.price,
+  compare_at_price: p.compare,
+  images: p.image ? [{ src: p.image }] : [],
+  handle: p.url ? p.url.split('/produtos/')[1] : String(p.id),
+  variants: []
+}));
+if (prods.length < 50) break;
       page++;
     }
     filteredProducts = [...allProducts];
