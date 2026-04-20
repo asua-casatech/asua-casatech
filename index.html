@@ -394,7 +394,7 @@ async function loadProducts() {
   try {
     let page = 1;
     while(true) {
-      const res = await fetch(`${/api/products?page=${page}`);
+      const res = await fetch(`/api/products?page=${page}`);
       if (!res.ok) throw new Error(`API error ${res.status}`);
       const data = await res.json();
       if (!Array.isArray(data) || data.length === 0) break;
