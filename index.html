@@ -29,11 +29,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:64px;display:flex;al
 .marquee-item strong{color:var(--text)}
 @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 section{padding:80px 48px}
-.si{max-width:1200px;margin:0 auto}
+.si{max-width:1280px;margin:0 auto}
 .slabel{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
 .stitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,4vw,52px);line-height:1;letter-spacing:.02em;margin-bottom:32px;color:var(--text)}
 .ph{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px}
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+
+/* Filtros */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.filter-btn{padding:8px 18px;border:1.5px solid var(--border);border-radius:50px;font-size:12.5px;font-weight:600;cursor:pointer;background:#fff;color:var(--text2);transition:all .2s;font-family:'DM Sans',sans-serif}
+.filter-btn:hover,.filter-btn.active{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+/* Search */
+.search-wrap{margin-bottom:24px}
+.search-input{width:100%;max-width:400px;padding:11px 18px;border:1.5px solid var(--border);border-radius:50px;font-size:14px;outline:none;font-family:'DM Sans',sans-serif;transition:border-color .2s}
+.search-input:focus{border-color:var(--blue)}
+
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .pc{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;cursor:pointer;transition:all .3s;display:block;color:inherit;box-shadow:0 2px 12px rgba(0,0,0,.05)}
 .pc:hover{transform:translateY(-6px);border-color:rgba(26,107,255,.3);box-shadow:0 20px 48px rgba(0,0,0,.12)}
 .pc-img{height:220px;overflow:hidden;position:relative;background:var(--gray);display:flex;align-items:center;justify-content:center}
@@ -43,14 +54,25 @@ section{padding:80px 48px}
 .pc-tag.green{background:rgba(26,140,78,.15);color:var(--green);border:1px solid rgba(26,140,78,.2)}
 .pc-tag.blue{background:rgba(26,107,255,.15);color:var(--blue);border:1px solid rgba(26,107,255,.2)}
 .pc-tag.red{background:rgba(255,68,68,.12);color:#e53e3e;border:1px solid rgba(255,68,68,.2)}
-.pc-body{padding:18px}
-.pc-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px;line-height:1.3;color:var(--text)}
-.pc-desc{font-size:12px;color:var(--text2);margin-bottom:14px;line-height:1.5}
+.pc-body{padding:16px}
+.pc-name{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;margin-bottom:4px;line-height:1.3;color:var(--text)}
+.pc-desc{font-size:11px;color:var(--text2);margin-bottom:12px;line-height:1.5;min-height:28px}
 .pc-footer{display:flex;justify-content:space-between;align-items:center}
-.pc-price{font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--green)}
+.pc-price{font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--green)}
 .pc-price-old{font-size:11px;color:#aaa;text-decoration:line-through;display:block}
-.pc-btn{background:var(--blue);color:#fff;border:none;padding:9px 16px;border-radius:50px;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.pc-btn{background:var(--blue);color:#fff;border:none;padding:8px 14px;border-radius:50px;font-size:11px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s;white-space:nowrap}
 .pc-btn:hover{background:#0050dd}
+
+/* Loading */
+.loading{text-align:center;padding:60px 20px;color:var(--text2)}
+.spinner{width:40px;height:40px;border:3px solid var(--border);border-top-color:var(--blue);border-radius:50%;animation:spin 0.8s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.load-more-wrap{text-align:center;margin-top:40px}
+.load-more-btn{background:var(--blue);color:#fff;border:none;padding:14px 40px;border-radius:50px;font-size:15px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.load-more-btn:hover{background:#0050dd;transform:translateY(-2px)}
+.load-more-btn:disabled{opacity:0.5;cursor:not-allowed}
+.product-count{font-size:13px;color:var(--text2);margin-bottom:20px}
+
 .why-section{background:var(--gray);border-top:1px solid var(--border)}
 .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
 .why-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:28px 24px;transition:all .25s;box-shadow:0 2px 8px rgba(0,0,0,.04)}
@@ -68,7 +90,6 @@ section{padding:80px 48px}
 .tcity{font-size:11.5px;color:var(--text2)}
 .cta-section{background:linear-gradient(135deg,#0f172a,#1a2744 50%,#0f2a1a);text-align:center;position:relative;overflow:hidden}
 .cta-inner{position:relative;max-width:700px;margin:0 auto}
-.ctag{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:20px}
 .ctitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(44px,5vw,68px);line-height:1;letter-spacing:.02em;margin-bottom:14px;color:#fff}
 .ctitle .hl{color:#4ade80}
 .csub{font-size:16px;color:rgba(255,255,255,.55);margin-bottom:32px;line-height:1.65}
@@ -77,8 +98,6 @@ section{padding:80px 48px}
 .cbtn:hover{transform:translateY(-2px)}
 .cghost{background:transparent;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.7);padding:15px 28px;border-radius:50px;font-size:15px;font-weight:500;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
 .cghost:hover{color:#fff}
-.cguarantees{display:flex;justify-content:center;gap:24px;margin-top:24px;flex-wrap:wrap}
-.cg{display:flex;align-items:center;gap:6px;font-size:12px;color:rgba(255,255,255,.4)}
 footer{background:#f8f8f6;border-top:1px solid var(--border);padding:52px 48px 28px}
 .fi{max-width:1200px;margin:0 auto}
 .ftop{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:36px}
@@ -95,6 +114,7 @@ footer{background:#f8f8f6;border-top:1px solid var(--border);padding:52px 48px 2
 .fcol ul li a:hover{color:var(--text)}
 .fbottom{border-top:1px solid var(--border);padding-top:22px;display:flex;justify-content:space-between;align-items:center}
 .fbottom p{font-size:12px;color:#aaa}
+@media(max-width:1100px){.pgrid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:900px){nav{padding:0 20px}.nav-links{display:none}section{padding:60px 20px}.trust-bar{gap:20px;padding:12px 20px}.pgrid{grid-template-columns:1fr 1fr}.why-grid{grid-template-columns:1fr 1fr}.tgrid{grid-template-columns:1fr}.ftop{grid-template-columns:1fr 1fr;gap:28px}.fbottom{flex-direction:column;gap:12px;text-align:center}}
 @media(max-width:500px){.pgrid{grid-template-columns:1fr}.why-grid{grid-template-columns:1fr}}
 </style>
@@ -103,7 +123,7 @@ footer{background:#f8f8f6;border-top:1px solid var(--border);padding:52px 48px 2
 <div class="announce">🔥 Câmera Wi-Fi 360° com 32% OFF &nbsp;·&nbsp; 🚚 Frete grátis acima de R$ 99 &nbsp;·&nbsp; 💳 12x sem juros</div>
 <nav>
   <a href="#" class="nav-logo">
-    <img src="https://raw.githubusercontent.com/asua-casatech/asua-casatech/main/logo.jpg" onerror="this.style.display='none'" alt="Logo">
+    <img src="https://dcdn-us.mitiendanube.com/stores/006/757/760/themes/common/logo-1239611652-1758743312-56897ea9ec2e38565e5cf8d28a68d3761758743312-640-0.webp" onerror="this.style.display='none'" alt="Logo">
     A Sua Casa<span class="g">Tech</span>
   </a>
   <ul class="nav-links">
@@ -140,40 +160,42 @@ footer{background:#f8f8f6;border-top:1px solid var(--border);padding:52px 48px 2
     <div class="marquee-item">🏠 Casa mais <strong>inteligente</strong></div>
   </div>
 </div>
+
 <section id="produtos">
   <div class="si">
     <div class="ph">
-      <div><div class="slabel">Catálogo</div><h2 class="stitle">OS MAIS PEDIDOS</h2></div>
+      <div><div class="slabel">Catálogo</div><h2 class="stitle">TODOS OS PRODUTOS</h2></div>
       <a href="https://asuacasatech.com.br" target="_blank" style="font-size:14px;color:var(--blue);font-weight:600">Ver loja completa →</a>
     </div>
-    <div class="pgrid">
-      <a href="https://asuacasatech.com.br/produtos/soquete-sensor-de-presenca-luz-iluminacao-e27-movimento-360/" target="_blank" class="pc" onclick="fbq('track','ViewContent',{value:79,currency:'BRL'})">
-        <div class="pc-img"><img src="https://http2.mlstatic.com/D_NQ_NP_780964-MLU79665988109_102024-O.webp" alt="Sensor E27" onerror="this.src='https://via.placeholder.com/400x300?text=Sensor+E27'"><div class="pc-tag green">🔥 Hot</div></div>
-        <div class="pc-body"><div class="pc-name">Sensor de Presença Lâmpada E27 360°</div><div class="pc-desc">Luz acende sozinha · detecção até 6m · bocal E27 · instala em 30s</div><div class="pc-footer"><div><span class="pc-price-old">R$ 149,00</span><span class="pc-price">R$ 79,00</span></div><button class="pc-btn" onclick="event.preventDefault();event.stopPropagation();fbq('track','AddToCart',{value:79,currency:'BRL'});window.open(this.closest('a').href,'_blank')">Comprar</button></div></div>
-      </a>
-      <a href="https://asuacasatech.com.br/produtos/camera-de-seguranca-ipega-wifi-lampada-rotacao-visao-noturna-kp-ca187/" target="_blank" class="pc" onclick="fbq('track','ViewContent',{value:169,currency:'BRL'})">
-        <div class="pc-img"><img src="https://http2.mlstatic.com/D_NQ_NP_617411-MLU77771069423_072024-O.webp" alt="Câmera WiFi 360" onerror="this.src='https://via.placeholder.com/400x300?text=Camera+WiFi'"><div class="pc-tag green">Top</div></div>
-        <div class="pc-body"><div class="pc-name">Câmera Wi-Fi 360° Visão Noturna E27</div><div class="pc-desc">Full HD · detecção de movimento · App Yoosee · áudio bidirecional</div><div class="pc-footer"><div><span class="pc-price-old">R$ 249,00</span><span class="pc-price">R$ 169,00</span></div><button class="pc-btn" onclick="event.preventDefault();event.stopPropagation();fbq('track','AddToCart',{value:169,currency:'BRL'});window.open(this.closest('a').href,'_blank')">Comprar</button></div></div>
-      </a>
-      <a href="https://asuacasatech.com.br/produtos/microfone-lapela-sem-fio-mcf18/" target="_blank" class="pc" onclick="fbq('track','ViewContent',{value:149,currency:'BRL'})">
-        <div class="pc-img"><img src="https://http2.mlstatic.com/D_NQ_NP_715163-MLU76800636720_062024-O.webp" alt="Microfone MCF18" onerror="this.src='https://via.placeholder.com/400x300?text=Microfone'"><div class="pc-tag blue">Novo</div></div>
-        <div class="pc-body"><div class="pc-name">Microfone Sem Fio MCF18 para Celular</div><div class="pc-desc">USB-C · Lightning · redução de ruído · ideal para creators</div><div class="pc-footer"><div><span class="pc-price-old">R$ 229,00</span><span class="pc-price">R$ 149,00</span></div><button class="pc-btn" onclick="event.preventDefault();event.stopPropagation();fbq('track','AddToCart',{value:149,currency:'BRL'});window.open(this.closest('a').href,'_blank')">Comprar</button></div></div>
-      </a>
-      <a href="https://asuacasatech.com.br/produtos/caixa-de-som-beats-portatil-bluetooth/" target="_blank" class="pc" onclick="fbq('track','ViewContent',{value:247,currency:'BRL'})">
-        <div class="pc-img"><img src="https://http2.mlstatic.com/D_NQ_NP_824914-MLU74557993655_022024-O.webp" alt="Caixa de Som BEATS" onerror="this.src='https://via.placeholder.com/400x300?text=Caixa+BEATS'"><div class="pc-tag red">Sale</div></div>
-        <div class="pc-body"><div class="pc-name">Caixa de Som BEATS RGB Bluetooth</div><div class="pc-desc">LED RGB · graves potentes · portátil · microfone integrado</div><div class="pc-footer"><div><span class="pc-price-old">R$ 499,00</span><span class="pc-price">R$ 247,00</span></div><button class="pc-btn" onclick="event.preventDefault();event.stopPropagation();fbq('track','AddToCart',{value:247,currency:'BRL'});window.open(this.closest('a').href,'_blank')">Comprar</button></div></div>
-      </a>
-      <a href="https://asuacasatech.com.br/produtos/smartwatch-pro-max/" target="_blank" class="pc" onclick="fbq('track','ViewContent',{value:219,currency:'BRL'})">
-        <div class="pc-img"><img src="https://http2.mlstatic.com/D_NQ_NP_773174-MLU73983800461_012024-O.webp" alt="Smartwatch" onerror="this.src='https://via.placeholder.com/400x300?text=Smartwatch'"><div class="pc-tag blue">Novo</div></div>
-        <div class="pc-body"><div class="pc-name">Smartwatch Pro Max Monitor Cardíaco SpO2</div><div class="pc-desc">7 dias bateria · Android & iOS · 100+ modos esportivos</div><div class="pc-footer"><div><span class="pc-price-old">R$ 399,00</span><span class="pc-price">R$ 219,00</span></div><button class="pc-btn" onclick="event.preventDefault();event.stopPropagation();fbq('track','AddToCart',{value:219,currency:'BRL'});window.open(this.closest('a').href,'_blank')">Comprar</button></div></div>
-      </a>
-      <a href="https://asuacasatech.com.br/produtos/headfone-bluetooth/" target="_blank" class="pc" onclick="fbq('track','ViewContent',{value:149,currency:'BRL'})">
-        <div class="pc-img"><img src="https://http2.mlstatic.com/D_NQ_NP_786755-MLU72448879861_102023-O.webp" alt="Headfone Bluetooth" onerror="this.src='https://via.placeholder.com/400x300?text=Headfone'"><div class="pc-tag blue">Top</div></div>
-        <div class="pc-body"><div class="pc-name">Headfone Bluetooth 5.0 · 30h de Bateria</div><div class="pc-desc">Microfone HD · dobrável · cancelamento de ruído · conforto premium</div><div class="pc-footer"><div><span class="pc-price-old">R$ 249,00</span><span class="pc-price">R$ 149,00</span></div><button class="pc-btn" onclick="event.preventDefault();event.stopPropagation();fbq('track','AddToCart',{value:149,currency:'BRL'});window.open(this.closest('a').href,'_blank')">Comprar</button></div></div>
-      </a>
+
+    <div class="search-wrap">
+      <input type="text" class="search-input" id="searchInput" placeholder="🔍 Buscar produto..." oninput="filterProducts()">
+    </div>
+
+    <div class="filters" id="filterBtns">
+      <button class="filter-btn active" onclick="setFilter('todos', this)">Todos</button>
+      <button class="filter-btn" onclick="setFilter('eletronicos', this)">Eletrônicos</button>
+      <button class="filter-btn" onclick="setFilter('cozinha', this)">Cozinha</button>
+      <button class="filter-btn" onclick="setFilter('gamer', this)">Gamer</button>
+      <button class="filter-btn" onclick="setFilter('infantil', this)">Infantil</button>
+      <button class="filter-btn" onclick="setFilter('jardim', this)">Jardim</button>
+      <button class="filter-btn" onclick="setFilter('jbl', this)">JBL</button>
+      <button class="filter-btn" onclick="setFilter('ferramentas', this)">Ferramentas</button>
+    </div>
+
+    <div class="product-count" id="productCount"></div>
+    <div class="pgrid" id="productGrid">
+      <div class="loading" style="grid-column:1/-1">
+        <div class="spinner"></div>
+        <p>Carregando produtos...</p>
+      </div>
+    </div>
+    <div class="load-more-wrap" id="loadMoreWrap" style="display:none">
+      <button class="load-more-btn" id="loadMoreBtn" onclick="loadMore()">Carregar mais produtos</button>
     </div>
   </div>
 </section>
+
 <section class="why-section" id="sobre">
   <div class="si">
     <div style="text-align:center;max-width:500px;margin:0 auto"><div class="slabel">Por que a gente</div><h2 class="stitle">TECNOLOGIA SEM<br>COMPLICAÇÃO</h2></div>
@@ -185,6 +207,7 @@ footer{background:#f8f8f6;border-top:1px solid var(--border);padding:52px 48px 2
     </div>
   </div>
 </section>
+
 <section>
   <div class="si">
     <div><div class="slabel">Avaliações</div><h2 class="stitle">O QUE DIZEM<br>NOSSOS CLIENTES</h2></div>
@@ -195,28 +218,23 @@ footer{background:#f8f8f6;border-top:1px solid var(--border);padding:52px 48px 2
     </div>
   </div>
 </section>
+
 <section class="cta-section">
   <div class="cta-inner">
-    <div class="ctag">🏠 Mais de 500 lares transformados</div>
     <h2 class="ctitle">PRONTO PARA UMA<br>CASA MAIS <span class="hl">INTELIGENTE?</span></h2>
     <p class="csub">Explore o catálogo completo. Frete grátis acima de R$ 99.</p>
     <div class="cactions">
       <a href="https://asuacasatech.com.br" target="_blank" class="cbtn">🛒 Ver todos os produtos →</a>
       <a href="https://wa.me/5521981776868" target="_blank" class="cghost">💬 Falar no WhatsApp</a>
     </div>
-    <div class="cguarantees">
-      <span class="cg">✅ 12x sem juros</span>
-      <span class="cg">🚚 Frete grátis acima de R$ 99</span>
-      <span class="cg">🔒 Compra 100% segura</span>
-      <span class="cg">🔄 Troca em 7 dias</span>
-    </div>
   </div>
 </section>
+
 <footer>
   <div class="fi">
     <div class="ftop">
       <div>
-        <div class="flogo"><img src="https://raw.githubusercontent.com/asua-casatech/asua-casatech/main/logo.jpg" onerror="this.style.display='none'" alt="Logo"> A Sua Casa<span style="color:var(--green)">Tech</span></div>
+        <div class="flogo"><img src="https://dcdn-us.mitiendanube.com/stores/006/757/760/themes/common/logo-1239611652-1758743312-56897ea9ec2e38565e5cf8d28a68d3761758743312-640-0.webp" onerror="this.style.display='none'" alt="Logo"> A Sua Casa<span style="color:var(--green)">Tech</span></div>
         <p class="fdesc">Marketplace de produtos inteligentes para casa.</p>
         <div class="socials">
           <a href="https://instagram.com/asua.casatech" target="_blank" class="social">📸</a>
@@ -233,15 +251,170 @@ footer{background:#f8f8f6;border-top:1px solid var(--border);padding:52px 48px 2
     </div>
   </div>
 </footer>
+
 <script>
-document.querySelectorAll('.pc-btn').forEach(btn=>{
-  btn.addEventListener('click',e=>{
-    e.preventDefault();e.stopPropagation();
-    if(typeof fbq!=='undefined')fbq('track','AddToCart');
-    const card=btn.closest('a');
-    if(card)window.open(card.href,'_blank');
+const STORE_ID = '7555109';
+const TOKEN = 'b5d0d580cd6889905fc1606a2101dec2aa72dbfd';
+const BASE_URL = `https://api.tiendanube.com/v1/${STORE_ID}`;
+const HEADERS = {
+  'Authentication': `bearer ${TOKEN}`,
+  'User-Agent': 'ASuaCasaTech (adm@asuacasatech.com.br)'
+};
+
+let allProducts = [];
+let filteredProducts = [];
+let currentFilter = 'todos';
+let currentPage = 0;
+const PER_PAGE = 20;
+
+function getName(p) {
+  if (!p.name) return 'Produto';
+  return p.name['pt'] || p.name['pt-BR'] || Object.values(p.name)[0] || 'Produto';
+}
+
+function getDesc(p) {
+  if (!p.description) return '';
+  const raw = p.description['pt'] || p.description['pt-BR'] || Object.values(p.description || {})[0] || '';
+  return raw.replace(/<[^>]+>/g, '').substring(0, 80);
+}
+
+function getImg(p) {
+  if (p.images && p.images.length > 0) return p.images[0].src || '';
+  return '';
+}
+
+function getPrice(p) {
+  const v = p.variants && p.variants[0];
+  const price = v ? (v.promotional_price || v.price || p.price) : p.price;
+  return parseFloat(price || 0).toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+}
+
+function getOldPrice(p) {
+  const v = p.variants && p.variants[0];
+  if (v && v.promotional_price && parseFloat(v.promotional_price) < parseFloat(v.price)) {
+    return parseFloat(v.price).toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  }
+  if (p.compare_at_price && parseFloat(p.compare_at_price) > parseFloat(p.price)) {
+    return parseFloat(p.compare_at_price).toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+  }
+  return null;
+}
+
+function getUrl(p) {
+  return `https://asuacasatech.com.br/produtos/${p.handle || p.id}`;
+}
+
+function getDiscount(p) {
+  const v = p.variants && p.variants[0];
+  if (v && v.promotional_price && parseFloat(v.promotional_price) < parseFloat(v.price)) {
+    const disc = Math.round((1 - parseFloat(v.promotional_price) / parseFloat(v.price)) * 100);
+    return disc > 0 ? disc : null;
+  }
+  return null;
+}
+
+function createCard(p) {
+  const name = getName(p);
+  const desc = getDesc(p);
+  const img = getImg(p);
+  const price = getPrice(p);
+  const oldPrice = getOldPrice(p);
+  const url = getUrl(p);
+  const disc = getDiscount(p);
+  const tag = disc ? `<div class="pc-tag red">-${disc}% OFF</div>` : `<div class="pc-tag green">🔥 Ver</div>`;
+  const oldPriceHtml = oldPrice ? `<span class="pc-price-old">R$ ${oldPrice}</span>` : '';
+  const imgHtml = img
+    ? `<img src="${img}" alt="${name}" loading="lazy" onerror="this.parentElement.style.background='#f0f4f8'">`
+    : `<div style="font-size:48px;color:#ccc">📦</div>`;
+
+  const card = document.createElement('a');
+  card.href = url;
+  card.target = '_blank';
+  card.className = 'pc';
+  card.onclick = () => { if(typeof fbq!=='undefined') fbq('track','ViewContent',{value: parseFloat(price.replace('.','').replace(',','.')), currency:'BRL'}); };
+  card.innerHTML = `
+    <div class="pc-img">${imgHtml}${tag}</div>
+    <div class="pc-body">
+      <div class="pc-name">${name}</div>
+      <div class="pc-desc">${desc}</div>
+      <div class="pc-footer">
+        <div>${oldPriceHtml}<span class="pc-price">R$ ${price}</span></div>
+        <button class="pc-btn">Comprar</button>
+      </div>
+    </div>`;
+  card.querySelector('.pc-btn').onclick = (e) => {
+    e.preventDefault(); e.stopPropagation();
+    if(typeof fbq!=='undefined') fbq('track','AddToCart');
+    window.open(url, '_blank');
+  };
+  return card;
+}
+
+function renderProducts() {
+  const grid = document.getElementById('productGrid');
+  const start = currentPage * PER_PAGE;
+  const slice = filteredProducts.slice(start, start + PER_PAGE);
+  if (currentPage === 0) grid.innerHTML = '';
+  slice.forEach(p => grid.appendChild(createCard(p)));
+  currentPage++;
+  document.getElementById('productCount').textContent = `${filteredProducts.length} produto(s) encontrado(s)`;
+  const hasMore = currentPage * PER_PAGE < filteredProducts.length;
+  document.getElementById('loadMoreWrap').style.display = hasMore ? 'block' : 'none';
+}
+
+function loadMore() { renderProducts(); }
+
+function setFilter(cat, btn) {
+  currentFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilter();
+}
+
+function applyFilter() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  filteredProducts = allProducts.filter(p => {
+    const name = getName(p).toLowerCase();
+    const cats = (p.categories || []).map(c => {
+      const n = c.name || {};
+      return (n['pt'] || n['pt-BR'] || Object.values(n)[0] || '').toLowerCase();
+    });
+    const handle = (p.handle || '').toLowerCase();
+    const matchCat = currentFilter === 'todos' || cats.some(c => c.includes(currentFilter)) || handle.includes(currentFilter);
+    const matchSearch = !search || name.includes(search);
+    return matchCat && matchSearch;
   });
-});
+  currentPage = 0;
+  renderProducts();
+}
+
+function filterProducts() { applyFilter(); }
+
+async function loadProducts() {
+  try {
+    let page = 1;
+    while(true) {
+      const res = await fetch(`${BASE_URL}/products?per_page=200&page=${page}`, { headers: HEADERS });
+      if (!res.ok) throw new Error(`API error ${res.status}`);
+      const data = await res.json();
+      if (!Array.isArray(data) || data.length === 0) break;
+      allProducts = allProducts.concat(data);
+      if (data.length < 200) break;
+      page++;
+    }
+    filteredProducts = [...allProducts];
+    renderProducts();
+  } catch(e) {
+    document.getElementById('productGrid').innerHTML = `
+      <div style="grid-column:1/-1;text-align:center;padding:40px;color:#666">
+        <div style="font-size:48px;margin-bottom:16px">🛍️</div>
+        <p style="margin-bottom:12px">Não foi possível carregar os produtos automaticamente.</p>
+        <a href="https://asuacasatech.com.br/produtos/" target="_blank" style="color:var(--blue);font-weight:600">Ver todos os produtos na loja →</a>
+      </div>`;
+  }
+}
+
+loadProducts();
 </script>
 </body>
 </html>
