@@ -32,3 +32,5 @@ export default async function handler(req, res) {
     res.status(500).json({ error: e.message });
   }
 }
+git add . && git commit -m "fix: corrigir handle produtos" && git pushgit add . && git commit -m "fix: corrigir handle produtos" && git push
+
