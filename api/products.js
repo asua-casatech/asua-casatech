@@ -2,7 +2,7 @@ export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Cache-Control', 's-maxage=300');
   const STORE_ID = '7555109';
-  const TOKEN = 'b5d0d580cd6889905fc1606a2101dec2aa72dbfd';
+  const TOKEN = '9f5da7e66cb1694f93cb398d88eb03a935126ad0';
   const page = req.query.page || 1;
   try {
     const r = await fetch(`https://api.tiendanube.com/v1/${STORE_ID}/products?per_page=50&page=${page}`, {
