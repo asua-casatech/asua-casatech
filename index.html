@@ -181,6 +181,11 @@ footer{background:#f8f8f6;border-top:1px solid var(--border);padding:52px 48px 2
       <button class="filter-btn" onclick="setFilter('jardim', this)">Jardim</button>
       <button class="filter-btn" onclick="setFilter('jbl', this)">JBL</button>
       <button class="filter-btn" onclick="setFilter('ferramentas', this)">Ferramentas</button>
+      <button class="filter-btn" onclick="setFilter('quarto', this)">Quarto</button>
+      <button class="filter-btn" onclick="setFilter('disney', this)">Disney</button>
+      <button class="filter-btn" onclick="setFilter('stanley', this)">Stanley</button>
+      <button class="filter-btn" onclick="setFilter('nerf', this)">Nerf</button>
+      <button class="filter-btn" onclick="setFilter('intelbras', this)">Intelbras</button>
     </div>
 
     <div class="product-count" id="productCount"></div>
@@ -380,7 +385,8 @@ function applyFilter() {
       return (n['pt'] || n['pt-BR'] || Object.values(n)[0] || '').toLowerCase();
     });
     const handle = (p.handle || '').toLowerCase();
-    const matchCat = currentFilter === 'todos' || cats.some(c => c.includes(currentFilter)) || handle.includes(currentFilter);
+    const norm = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+    const matchCat = currentFilter === 'todos' || cats.some(c => norm(c).includes(norm(currentFilter))) || norm(handle).includes(norm(currentFilter));
     const matchSearch = !search || name.includes(search);
     return matchCat && matchSearch;
   });
@@ -394,20 +400,12 @@ async function loadProducts() {
   try {
     let page = 1;
     while(true) {
-      const res = await fetch(`/api/products?page=${page}`);
+      const res = await fetch(`${BASE_URL}/products?per_page=200&page=${page}`, { headers: HEADERS });
       if (!res.ok) throw new Error(`API error ${res.status}`);
       const data = await res.json();
-const prods = data.products || [];
-if (prods.length === 0) break;
-prods.forEach(p => allProducts.push({
-  name: { pt: p.name },
-  price: p.price,
-  compare_at_price: p.compare,
-  images: p.image ? [{ src: p.image }] : [],
-  handle: p.url ? p.url.split('/produtos/')[1] : String(p.id),
-  variants: []
-}));
-if (prods.length < 50) break;
+      if (!Array.isArray(data) || data.length === 0) break;
+      allProducts = allProducts.concat(data);
+      if (data.length < 200) break;
       page++;
     }
     filteredProducts = [...allProducts];
