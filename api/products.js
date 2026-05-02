@@ -26,7 +26,7 @@ export default async function handler(req, res) {
         price,
         compare,
         image: p.images?.[0]?.src || '',
-        url: `url: `https://asuacasatech.lojavirtualnuvem.com.br/produtos/${handle}`
+        url: `https://asuacasatech.lojavirtualnuvem.com.br/produtos/${handle}`
       };
     });
     res.json({ products, total: products.length });
