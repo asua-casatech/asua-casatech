@@ -20,13 +20,18 @@ export default async function handler(req, res) {
       const regularPrice = p.variants?.[0]?.price || p.price || '0';
       const price = promoPrice && parseFloat(promoPrice) < parseFloat(regularPrice) ? promoPrice : regularPrice;
       const compare = promoPrice && parseFloat(promoPrice) < parseFloat(regularPrice) ? regularPrice : (p.compare_at_price || '');
+      const categories = (p.categories || []).map(c => {
+        const n = c.name || {};
+        return n.pt || n['pt-BR'] || Object.values(n)[0] || '';
+      }).filter(Boolean);
       return {
         id: p.id,
         name: p.name?.pt || p.name?.['pt-BR'] || Object.values(p.name || {})[0] || '',
         price,
         compare,
         image: p.images?.[0]?.src || '',
-        url: `https://loja.asuacasatech.com.br/produtos/${handle}`
+        url: `https://loja.asuacasatech.com.br/produtos/${handle}`,
+        categories
       };
     });
     res.json({ products, total: products.length });
