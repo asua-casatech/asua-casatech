@@ -571,7 +571,7 @@ async function loadProducts(){
         handle:p.url?p.url.split('/produtos/')[1]?.replace(/\/$/,''):String(p.id),
         permalink:p.url||null,
         variants:[],
-        categories:[]
+        categories:categories:(p.categories||[]).map(c=>({name:{pt:c}})),
       }));
       if(prods.length<50)break;
       page++;
