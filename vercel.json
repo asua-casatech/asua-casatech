@@ -8,11 +8,10 @@
       ]
     }
   ],
-  "routes": [
-    { "src": "/api/(.*)", "dest": "/api/$1" },
-    { "src": "/camera", "dest": "/camera/index.html" },
-    { "src": "/camera/(.*)", "dest": "/camera/$1" },
-    { "src": "/", "dest": "/index.html" },
-    { "src": "/(.*)", "dest": "/$1" }
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/:path*" },
+    { "source": "/camera", "destination": "/camera/index.html" },
+    { "source": "/camera/:path*", "destination": "/camera/:path*" },
+    { "source": "/", "destination": "/index.html" }
   ]
 }
