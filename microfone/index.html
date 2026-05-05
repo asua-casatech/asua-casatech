@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Microfone Lapela Pro Sem Fio — A Sua Casa Tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #ffffff;
+    --bg-soft: #fafafa;
+    --ink: #0a0a0a;
+    --ink-2: #1a1a1a;
+    --muted: #6b6b6b;
+    --line: #ececec;
+    --line-2: #e0e0e0;
+    --red: #ff3b30;
+    --red-soft: #ffe9e7;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* ─────── NAV ─────── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: saturate(180%) blur(14px);
+    -webkit-backdrop-filter: saturate(180%) blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+  }
+  .brand-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--ink);
+    display: grid;
+    place-items: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 800;
+  }
+  .brand-mark::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: var(--red);
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--ink);
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .nav-links a { color: inherit; text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    background: var(--ink);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: transform .15s, background .2s;
+  }
+  .nav-cta:hover { background: #222; transform: translateY(-1px); }
+
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+    .nav-inner { padding: 14px 20px; }
+  }
+
+  /* ─────── FLOATING BADGE ─────── */
+  .live-badge {
+    position: fixed;
+    top: 92px;
+    right: 32px;
+    z-index: 40;
+    background: var(--ink);
+    color: white;
+    padding: 9px 14px 9px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    animation: badgeIn .8s .4s cubic-bezier(.22,1,.36,1) backwards;
+  }
+  .live-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 0 0 0 0 rgba(255,59,48,0.6);
+    animation: pulse 1.6s infinite;
+  }
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255,59,48,0.55); }
+    70% { box-shadow: 0 0 0 9px rgba(255,59,48,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,59,48,0); }
+  }
+  @keyframes badgeIn {
+    from { opacity: 0; transform: translateY(-12px) scale(.9); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @media (max-width: 720px) {
+    .live-badge { right: 16px; top: 78px; font-size: 11px; padding: 7px 12px 7px 10px; }
+  }
+
+  /* ─────── HERO ─────── */
+  .hero {
+    position: relative;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 80px 32px 100px;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 64px;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 6px 12px;
+    border: 1px solid var(--line-2);
+    border-radius: 999px;
+    margin-bottom: 28px;
+  }
+  .hero-eyebrow .rec-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--red);
+    animation: blink 1.4s infinite;
+  }
+  @keyframes blink { 0%, 60% { opacity: 1; } 70%, 100% { opacity: .25; } }
+
+  .hero h1 {
+    font-size: clamp(44px, 6.4vw, 84px);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 24px;
+    text-wrap: balance;
+  }
+  .hero h1 .accent {
+    display: inline-block;
+    position: relative;
+  }
+  .hero h1 .accent::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4px;
+    height: 8px;
+    background: var(--red);
+    opacity: 0.18;
+    z-index: -1;
+    border-radius: 2px;
+  }
+  .hero p.lead {
+    font-size: 19px;
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 36px;
+    line-height: 1.55;
+    text-wrap: pretty;
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: white;
+    padding: 17px 28px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform .18s ease, background .2s, box-shadow .2s;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  }
+  .btn-primary:hover {
+    background: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.16);
+  }
+  .btn-primary .arrow {
+    transition: transform .25s;
+  }
+  .btn-primary:hover .arrow { transform: translateX(4px); }
+
+  .trust-mini {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .stars { color: #f5b301; letter-spacing: 1px; font-size: 14px; }
+
+  /* Hero image */
+  .hero-visual {
+    position: relative;
+    aspect-ratio: 1 / 1.05;
+    display: grid;
+    place-items: center;
+  }
+  .hero-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+  }
+  .product-img {
+    position: relative;
+    z-index: 3;
+    width: 88%;
+    max-width: 520px;
+    object-fit: contain;
+    filter: drop-shadow(0 32px 48px rgba(10,10,10,0.18)) drop-shadow(0 8px 16px rgba(10,10,10,0.08));
+    animation: floaty 6s ease-in-out infinite;
+  }
+  @keyframes floaty {
+    0%, 100% { transform: translateY(0) rotate(-1.5deg); }
+    50%      { transform: translateY(-12px) rotate(-1.5deg); }
+  }
+
+  /* sound waves behind product */
+  .waves {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .wave-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 1.5px solid var(--ink);
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.4);
+    animation: ring 4s linear infinite;
+  }
+  .wave-ring:nth-child(2) { animation-delay: 1s; }
+  .wave-ring:nth-child(3) { animation-delay: 2s; }
+  .wave-ring:nth-child(4) { animation-delay: 3s; }
+  @keyframes ring {
+    0%   { opacity: 0;    transform: translate(-50%,-50%) scale(0.4); }
+    20%  { opacity: 0.10; }
+    100% { opacity: 0;    transform: translate(-50%,-50%) scale(1.6); }
+  }
+
+  /* recording dot floating */
+  .rec-floating {
+    position: absolute;
+    top: 8%;
+    right: 6%;
+    z-index: 4;
+    background: white;
+    border: 1px solid var(--line);
+    box-shadow: 0 10px 28px rgba(10,10,10,0.10);
+    border-radius: 999px;
+    padding: 9px 14px 9px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    animation: floaty2 5s ease-in-out infinite;
+  }
+  .rec-floating .live-dot { width: 9px; height: 9px; }
+  @keyframes floaty2 {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+  }
+
+  /* equalizer bottom-left chip */
+  .eq-chip {
+    position: absolute;
+    bottom: 8%;
+    left: 4%;
+    z-index: 4;
+    background: var(--ink);
+    color: white;
+    border-radius: 14px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 14px 36px rgba(10,10,10,0.20);
+    animation: floaty3 5.4s ease-in-out infinite;
+  }
+  @keyframes floaty3 {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-6px); }
+  }
+  .eq {
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+    height: 22px;
+  }
+  .eq span {
+    display: block;
+    width: 3px;
+    background: white;
+    border-radius: 2px;
+    animation: eq 1s ease-in-out infinite;
+  }
+  .eq span:nth-child(1) { animation-delay: 0.0s; height: 40%; }
+  .eq span:nth-child(2) { animation-delay: 0.15s; height: 80%; }
+  .eq span:nth-child(3) { animation-delay: 0.3s;  height: 60%; }
+  .eq span:nth-child(4) { animation-delay: 0.45s; height: 95%; }
+  .eq span:nth-child(5) { animation-delay: 0.6s;  height: 50%; }
+  .eq span:nth-child(6) { animation-delay: 0.75s; height: 75%; }
+  @keyframes eq {
+    0%, 100% { transform: scaleY(0.4); }
+    50%      { transform: scaleY(1); }
+  }
+  .eq-chip .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding: 56px 24px 72px; gap: 36px; }
+    .hero-visual { aspect-ratio: 1 / 1; max-width: 480px; margin: 0 auto; width: 100%; }
+    .product-img { width: 78%; }
+  }
+
+  /* ─────── MARQUEE / waveform divider ─────── */
+  .divider-wave {
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    overflow: hidden;
+    background: var(--bg-soft);
+  }
+  .divider-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .divider-inner .item {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .divider-inner .item svg { width: 14px; height: 14px; }
+  .divider-inner .item .dot { width: 6px; height: 6px; background: var(--ink); border-radius: 50%; }
+
+  /* ─────── FEATURES ─────── */
+  .features {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 110px 32px;
+  }
+  .section-head {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 56px;
+    max-width: 720px;
+  }
+  .section-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .section-head h2 {
+    font-size: clamp(34px, 4.4vw, 56px);
+    line-height: 1.02;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+    text-wrap: balance;
+  }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .feature {
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 32px 28px;
+    background: var(--bg);
+    transition: transform .25s ease, border-color .25s, box-shadow .25s;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-height: 260px;
+  }
+  .feature:hover {
+    transform: translateY(-4px);
+    border-color: var(--ink);
+    box-shadow: 0 18px 40px rgba(10,10,10,0.06);
+  }
+  .feature .icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--ink);
+    color: white;
+    display: grid;
+    place-items: center;
+  }
+  .feature .icon svg { width: 22px; height: 22px; stroke: white; fill: none; stroke-width: 1.8; }
+  .feature h3 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+  }
+  .feature p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .feature .num {
+    margin-top: auto;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--muted);
+  }
+  @media (max-width: 880px) {
+    .feature-grid { grid-template-columns: 1fr; }
+    .features { padding: 80px 24px; }
+  }
+
+  /* ─────── SOCIAL PROOF ─────── */
+  .social {
+    background: var(--ink);
+    color: white;
+    padding: 110px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .social-inner {
+    max-width: 980px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  .social .stars {
+    font-size: 28px;
+    color: #f5b301;
+    letter-spacing: 6px;
+    margin-bottom: 28px;
+  }
+  .social blockquote {
+    font-size: clamp(28px, 4vw, 48px);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+    text-wrap: balance;
+    margin-bottom: 28px;
+  }
+  .social .author {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .social .author::before, .social .author::after {
+    content: "";
+    width: 28px;
+    height: 1px;
+    background: rgba(255,255,255,0.3);
+  }
+  /* big background waveform */
+  .social-waveform {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    opacity: 0.06;
+    z-index: 1;
+    pointer-events: none;
+  }
+  .social-waveform span {
+    display: block;
+    width: 5px;
+    background: white;
+    border-radius: 4px;
+    animation: eq 1.4s ease-in-out infinite;
+  }
+
+  /* ─────── PRICE ─────── */
+  .price {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 110px 32px;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  .price-card {
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 40px;
+    background: var(--bg-soft);
+    position: relative;
+    overflow: hidden;
+  }
+  .price-card .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    background: var(--red-soft);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+  }
+  .price-card h3 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    font-weight: 800;
+    margin-bottom: 28px;
+    text-wrap: balance;
+  }
+  .perks { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+  .perk {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 16px;
+    color: var(--ink-2);
+  }
+  .perk .check {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: white;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+  }
+  .perk .check svg { width: 12px; height: 12px; stroke: white; fill: none; stroke-width: 2.5; }
+  .price-meta {
+    border-top: 1px dashed var(--line-2);
+    padding-top: 24px;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .price-meta .install {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .price-meta .desc { color: var(--muted); font-size: 14px; }
+
+  .price-aside h2 {
+    font-size: clamp(34px, 4.6vw, 60px);
+    line-height: 1;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-wrap: balance;
+  }
+  .price-aside p {
+    color: var(--muted);
+    font-size: 17px;
+    margin-bottom: 28px;
+    max-width: 420px;
+  }
+  .ship-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .ship-item {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .ship-item .k { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+  .ship-item .v { font-size: 15px; font-weight: 600; color: var(--ink); }
+
+  @media (max-width: 880px) {
+    .price { grid-template-columns: 1fr; padding: 80px 24px; gap: 36px; }
+    .price-card { padding: 28px; }
+  }
+
+  /* ─────── FINAL CTA ─────── */
+  .final {
+    max-width: 1240px;
+    margin: 0 auto 100px;
+    padding: 0 32px;
+  }
+  .final-card {
+    background: var(--ink);
+    color: white;
+    border-radius: 32px;
+    padding: 80px 56px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  .final-card .rec-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 28px;
+  }
+  .final-card .rec-mini .live-dot { width: 8px; height: 8px; }
+  .final-card h2 {
+    font-size: clamp(38px, 5.5vw, 76px);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    font-weight: 800;
+    text-wrap: balance;
+    margin-bottom: 36px;
+    max-width: 880px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn-primary.invert {
+    background: white;
+    color: var(--ink);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  }
+  .btn-primary.invert:hover { background: #f1f1f1; }
+  .final-card .below {
+    margin-top: 22px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  /* waveform decorations on final */
+  .final-waves {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 4px;
+    opacity: 0.08;
+    pointer-events: none;
+    padding: 0 40px;
+  }
+  .final-waves span {
+    display: block;
+    width: 4px;
+    background: white;
+    border-radius: 4px;
+    animation: eq 1.6s ease-in-out infinite;
+  }
+
+  @media (max-width: 720px) {
+    .final-card { padding: 56px 24px; border-radius: 24px; }
+  }
+
+  /* ─────── FOOTER ─────── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 36px 32px;
+  }
+  .foot-inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+    color: var(--muted);
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+  .foot-inner .brand { color: var(--ink); }
+
+  /* ─────── REVEAL ─────── */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .reveal.d1 { transition-delay: .08s; }
+  .reveal.d2 { transition-delay: .16s; }
+  .reveal.d3 { transition-delay: .24s; }
+  .reveal.d4 { transition-delay: .32s; }
+
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>A Sua Casa Tech</span>
+      </div>
+      <div class="nav-links">
+        <a href="#features">Recursos</a>
+        <a href="#review">Avaliações</a>
+        <a href="#price">Preço</a>
+        <a href="#faq">Suporte</a>
+      </div>
+      <a class="nav-cta" href="https://loja.asuacasatech.com.br/produtos/microfone-lapela-pro-sem-fio">
+        Comprar <span>→</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- FLOATING BADGE -->
+  <div class="live-badge" aria-label="Novo">
+    <span class="live-dot"></span>
+    <span>AO VIVO · NOVO</span>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="hero-eyebrow reveal">
+        <span class="rec-dot"></span>
+        <span class="mono">REC · LAPELA PRO · SEM FIO</span>
+      </div>
+      <h1 class="reveal d1">
+        Sua voz.<br />
+        <span class="accent">Qualidade profissional.</span>
+      </h1>
+      <p class="lead reveal d2">
+        Microfone lapela sem fio para celular, YouTube, lives e podcasts.
+        Captura nítida, conexão instantânea e liberdade total para você gravar onde estiver.
+      </p>
+      <div class="cta-row reveal d3">
+        <a class="btn-primary" href="https://loja.asuacasatech.com.br/produtos/microfone-lapela-pro-sem-fio">
+          Comprar agora <span class="arrow">→</span>
+        </a>
+        <div class="trust-mini">
+          <span class="stars">★★★★★</span>
+          <span>+2.300 clientes satisfeitos</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal d2">
+      <div class="hero-stage">
+        <div class="waves" aria-hidden="true">
+          <div class="wave-ring"></div>
+          <div class="wave-ring"></div>
+          <div class="wave-ring"></div>
+          <div class="wave-ring"></div>
+        </div>
+
+        <img class="product-img"
+             src="https://dcdn-us.mitiendanube.com/stores/006/757/760/products/produto-176060198868f0a7840fcce-88df82f2e75ec1aa0517758498963586-1024-1024.webp"
+             alt="Microfone Lapela Pro Sem Fio" />
+
+        <div class="rec-floating">
+          <span class="live-dot"></span>
+          <span>REC · 48kHz</span>
+        </div>
+
+        <div class="eq-chip">
+          <div class="eq">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="label">CAPTANDO ÁUDIO</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider-wave">
+    <div class="divider-inner">
+      <div class="item"><span class="dot"></span>iPhone</div>
+      <div class="item"><span class="dot"></span>Android</div>
+      <div class="item"><span class="dot"></span>YouTube</div>
+      <div class="item"><span class="dot"></span>Instagram Lives</div>
+      <div class="item"><span class="dot"></span>Podcasts</div>
+      <div class="item"><span class="dot"></span>Reels &amp; TikTok</div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">// 03 RECURSOS</span>
+      <h2>Tudo que você precisa, nada que você não use.</h2>
+    </div>
+
+    <div class="feature-grid">
+      <div class="feature reveal d1">
+        <div class="icon">
+          <!-- wireless -->
+          <svg viewBox="0 0 24 24"><path d="M2 8.5C5 5.5 9 4 12 4s7 1.5 10 4.5"/><path d="M5 12c2-2 4.5-3 7-3s5 1 7 3"/><path d="M8.5 15.5c1-1 2.2-1.5 3.5-1.5s2.5.5 3.5 1.5"/><circle cx="12" cy="19" r="1.5" fill="white"/></svg>
+        </div>
+        <h3>Sem fio</h3>
+        <p>Liberdade de movimento total. Grave andando, dirigindo ou em qualquer cenário, sem cabos para te limitar.</p>
+        <span class="num mono">01 / WIRELESS</span>
+      </div>
+
+      <div class="feature reveal d2">
+        <div class="icon">
+          <!-- plug -->
+          <svg viewBox="0 0 24 24"><path d="M9 3v5"/><path d="M15 3v5"/><path d="M6 8h12v3a6 6 0 0 1-12 0V8z"/><path d="M12 17v4"/></svg>
+        </div>
+        <h3>Plug &amp; Play</h3>
+        <p>Sem aplicativos, sem configurações. Conecte e comece a gravar em segundos — funciona como deveria.</p>
+        <span class="num mono">02 / READY</span>
+      </div>
+
+      <div class="feature reveal d3">
+        <div class="icon">
+          <!-- phone -->
+          <svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 18h2"/></svg>
+        </div>
+        <h3>iPhone &amp; Android</h3>
+        <p>Compatibilidade universal com receptores Lightning e USB-C inclusos. Funciona em todos os dispositivos modernos.</p>
+        <span class="num mono">03 / UNIVERSAL</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="social" id="review">
+    <div class="social-waveform" aria-hidden="true">
+      <!-- 40 bars -->
+    </div>
+    <div class="social-inner">
+      <div class="stars reveal">★★★★★</div>
+      <blockquote class="reveal d1">"Qualidade incrível para o preço. Uso em todos os meus vídeos do YouTube e a captação ficou outra coisa."</blockquote>
+      <div class="author reveal d2">Marina C. · Cliente verificado</div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section class="price" id="price">
+    <div class="price-card reveal">
+      <div class="tag"><span class="live-dot" style="width:6px;height:6px;background:var(--red)"></span>Oferta especial</div>
+      <h3>Microfone Lapela Pro Sem Fio</h3>
+
+      <div class="perks">
+        <div class="perk">
+          <span class="check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></span>
+          <span>12x sem juros no cartão</span>
+        </div>
+        <div class="perk">
+          <span class="check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></span>
+          <span>Frete grátis para todo o Brasil</span>
+        </div>
+        <div class="perk">
+          <span class="check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></span>
+          <span>Entrega em 5 a 12 dias úteis</span>
+        </div>
+        <div class="perk">
+          <span class="check"><svg viewBox="0 0 24 24"><polyline points="4 12 10 18 20 6"/></svg></span>
+          <span>Garantia de 1 ano + 7 dias para troca</span>
+        </div>
+      </div>
+
+      <div class="price-meta">
+        <div class="install">12x sem juros</div>
+        <div class="desc">no cartão · à vista com desconto</div>
+      </div>
+    </div>
+
+    <div class="price-aside">
+      <h2 class="reveal">Pague melhor. Receba rápido.</h2>
+      <p class="reveal d1">Parcelamento facilitado, frete grátis e entrega para todo o Brasil. Tudo o que você precisa para começar a gravar.</p>
+      <div class="ship-grid">
+        <div class="ship-item reveal d1"><span class="k">PARCELAMENTO</span><span class="v">12x sem juros</span></div>
+        <div class="ship-item reveal d2"><span class="k">FRETE</span><span class="v">Grátis · Brasil</span></div>
+        <div class="ship-item reveal d3"><span class="k">ENTREGA</span><span class="v">5 – 12 dias</span></div>
+        <div class="ship-item reveal d4"><span class="k">GARANTIA</span><span class="v">1 ano oficial</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final">
+    <div class="final-card">
+      <div class="final-waves" aria-hidden="true">
+        <!-- bars injected -->
+      </div>
+      <div style="position:relative;z-index:2">
+        <div class="rec-mini">
+          <span class="live-dot"></span>
+          <span>EM ESTOQUE · ENVIO IMEDIATO</span>
+        </div>
+        <h2 class="reveal">A diferença entre amador e profissional é a sua voz.</h2>
+        <a class="btn-primary invert reveal d1" href="https://loja.asuacasatech.com.br/produtos/microfone-lapela-pro-sem-fio">
+          Garantir o meu agora <span class="arrow">→</span>
+        </a>
+        <div class="below reveal d2">12x sem juros · frete grátis · entrega 5–12 dias</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="faq">
+    <div class="foot-inner">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>A Sua Casa Tech</span>
+      </div>
+      <div>© 2026 · Todos os direitos reservados</div>
+      <div class="mono">SUPORTE · CNPJ · POLÍTICAS</div>
+    </div>
+  </footer>
+
+<script>
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+  // Inject waveform bars (social + final)
+  function makeBars(container, count, hMin, hMax) {
+    const frag = document.createDocumentFragment();
+    for (let i = 0; i < count; i++) {
+      const s = document.createElement('span');
+      const h = hMin + Math.random() * (hMax - hMin);
+      s.style.height = h + 'px';
+      s.style.animationDelay = (Math.random() * 1.4).toFixed(2) + 's';
+      frag.appendChild(s);
+    }
+    container.appendChild(frag);
+  }
+  document.querySelectorAll('.social-waveform').forEach((el) => makeBars(el, 60, 20, 220));
+  document.querySelectorAll('.final-waves').forEach((el) => makeBars(el, 80, 30, 220));
+</script>
+
+</body>
+</html>
