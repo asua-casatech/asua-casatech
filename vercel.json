@@ -12,6 +12,8 @@
     { "source": "/api/:path*", "destination": "/api/:path*" },
     { "source": "/camera", "destination": "/camera/index.html" },
     { "source": "/camera/:path*", "destination": "/camera/:path*" },
+    { "source": "/smartwatch", "destination": "/smartwatch/index.html" },
+    { "source": "/smartwatch/:path*", "destination": "/smartwatch/:path*" },
     { "source": "/", "destination": "/index.html" }
   ]
 }
