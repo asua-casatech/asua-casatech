@@ -170,6 +170,31 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.55);padding:56px 40px 28px}
 @media(max-width:1100px){.pgrid{grid-template-columns:repeat(3,1fr)}.cat-grid{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:900px){nav{padding:0 20px;gap:12px}.nav-links{display:none}.nav-search{max-width:none}section{padding:52px 20px}.trust-bar{gap:14px;padding:10px 20px}.hero{grid-template-columns:1fr;padding:48px 20px;gap:40px}.pgrid{grid-template-columns:1fr 1fr}.cat-grid{grid-template-columns:repeat(3,1fr)}.why-grid{grid-template-columns:1fr 1fr}.tgrid{grid-template-columns:1fr}.promo-grid{grid-template-columns:1fr}.ftop{grid-template-columns:1fr 1fr;gap:28px}.fbottom{flex-direction:column;text-align:center}.section-header{flex-direction:column;align-items:flex-start;gap:12px}}
 @media(max-width:500px){.pgrid{grid-template-columns:1fr}.cat-grid{grid-template-columns:repeat(2,1fr)}.why-grid{grid-template-columns:1fr}}
+ 
+.dest-section{padding:60px 40px;background:#fff}
+.dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.dest-card{position:relative;border-radius:20px;overflow:hidden;background:#fff;border:1px solid var(--border);transition:all .3s;display:block;color:inherit;text-decoration:none}
+.dest-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,0.12);border-color:transparent}
+.dest-img{height:260px;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative}
+.dest-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.dest-card:hover .dest-img img{transform:scale(1.08)}
+.dest-badge{position:absolute;top:14px;left:14px;padding:5px 12px;border-radius:50px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;z-index:2}
+.dest-badge.off{background:rgba(229,57,53,.12);color:#e53935;border:1px solid rgba(229,57,53,.2)}
+.dest-badge.new{background:rgba(21,101,192,.12);color:#1565c0;border:1px solid rgba(21,101,192,.2)}
+.dest-badge.hot{background:rgba(0,168,70,.12);color:#00a846;border:1px solid rgba(0,168,70,.2)}
+.dest-body{padding:20px}
+.dest-tag{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green2);margin-bottom:6px}
+.dest-name{font-size:17px;font-weight:800;color:var(--text);margin-bottom:6px;line-height:1.3}
+.dest-desc{font-size:12.5px;color:var(--text3);line-height:1.6;margin-bottom:16px}
+.dest-footer{display:flex;align-items:center;justify-content:space-between}
+.dest-price{font-family:'Bebas Neue',sans-serif;font-size:26px;color:var(--green2);line-height:1}
+.dest-price-old{font-size:11px;color:#bbb;text-decoration:line-through;font-family:'Plus Jakarta Sans',sans-serif;display:block}
+.dest-btn{background:#0a0a0a;color:#fff;padding:10px 20px;border-radius:50px;font-size:12px;font-weight:700;display:inline-flex;align-items:center;gap:6px;transition:all .2s;white-space:nowrap}
+.dest-btn:hover{background:var(--green2);transform:scale(1.05)}
+.dest-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,transparent 50%);opacity:0;transition:opacity .3s;z-index:1}
+.dest-card:hover .dest-overlay{opacity:1}
+@media(max-width:900px){.dest-grid{grid-template-columns:1fr}.dest-section{padding:40px 20px}}
+@media(max-width:600px){.dest-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -254,6 +279,86 @@ footer{background:#0a0a0a;color:rgba(255,255,255,.55);padding:56px 40px 28px}
     <div class="marquee-item">⭐ <strong>100%</strong> recomendado</div>
   </div>
 </div>
+ 
+<!-- SEÇÃO DESTAQUES -->
+<section class="dest-section">
+  <div class="si">
+    <div class="section-header">
+      <div>
+        <div class="section-label">🔥 Mais procurados</div>
+        <h2 class="section-title">OFERTAS EM DESTAQUE</h2>
+      </div>
+      <a href="#produtos" class="section-link">Ver todos →</a>
+    </div>
+    <div class="dest-grid">
+ 
+      <!-- Card 1: Câmera -->
+      <a href="/camera" class="dest-card">
+        <div class="dest-img" style="background:#0a0a0a">
+          <img src="https://dcdn-us.mitiendanube.com/stores/006/757/760/products/produto-172355691866bb643639479-56ef3f5695417e14ff17775849671882-1024-1024.webp" alt="Dual Câmera Smart Wifi">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-badge off">50% OFF</div>
+        <div class="dest-body">
+          <div class="dest-tag">Segurança · Eletrônicos</div>
+          <div class="dest-name">Dual Câmera Smart Wifi 355°</div>
+          <div class="dest-desc">Visão noturna, detecção por IA e controle remoto pelo celular. Proteja sua casa de qualquer lugar.</div>
+          <div class="dest-footer">
+            <div>
+              <span class="dest-price-old">R$ 299,00</span>
+              <span class="dest-price">R$ 149,00</span>
+            </div>
+            <span class="dest-btn">Ver oferta →</span>
+          </div>
+        </div>
+      </a>
+ 
+      <!-- Card 2: Smartwatch -->
+      <a href="/smartwatch" class="dest-card">
+        <div class="dest-img" style="background:#f8f4ee">
+          <img src="https://dcdn-us.mitiendanube.com/stores/006/757/760/products/produto-17621916766908e93c63832-6abde23fc1395b286117761205212626-1024-1024.webp" alt="Smartwatch MA20S">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-badge off">38% OFF</div>
+        <div class="dest-body">
+          <div class="dest-tag">Wearables · Saúde</div>
+          <div class="dest-name">Smartwatch MA20S Premium</div>
+          <div class="dest-desc">Monitor cardíaco, GPS integrado e 7 dias de bateria. Design premium que cabe no bolso.</div>
+          <div class="dest-footer">
+            <div>
+              <span class="dest-price-old">R$ 299,00</span>
+              <span class="dest-price">R$ 189,00</span>
+            </div>
+            <span class="dest-btn">Ver oferta →</span>
+          </div>
+        </div>
+      </a>
+ 
+      <!-- Card 3: Microfone -->
+      <a href="/microfone" class="dest-card">
+        <div class="dest-img" style="background:#f5f5f5">
+          <img src="https://dcdn-us.mitiendanube.com/stores/006/757/760/products/produto-176060198868f0a7840fcce-88df82f2e75ec1aa0517758498963586-1024-1024.webp" alt="Microfone Lapela Pro">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-badge new">NOVO</div>
+        <div class="dest-body">
+          <div class="dest-tag">Áudio · Criação de conteúdo</div>
+          <div class="dest-name">Microfone Lapela Pro Sem Fio</div>
+          <div class="dest-desc">Plug & Play, sem app. Compatível com iPhone e Android. Som cristalino para lives e podcasts.</div>
+          <div class="dest-footer">
+            <div>
+              <span class="dest-price-old">R$ 199,00</span>
+              <span class="dest-price">R$ 119,00</span>
+            </div>
+            <span class="dest-btn">Ver oferta →</span>
+          </div>
+        </div>
+      </a>
+ 
+    </div>
+  </div>
+</section>
+ 
  
 <section class="cat-section" id="categorias">
   <div class="si">
