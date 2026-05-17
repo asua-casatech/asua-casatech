@@ -1,40 +1,63 @@
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Cache-Control', 's-maxage=300');
-  const STORE_ID = '6757760';
-  const TOKEN = '379175473a22216bbe356029aab9f9d78aae0519b349717b';
-  const page = req.query.page || 1;
+  res.setHeader('Cache-Control', 's-maxage=3600');
+
+  const page = parseInt(req.query.page || '1');
+  const PER_PAGE = 50;
+
   try {
-    const r = await fetch(`https://api.tiendanube.com/v1/${STORE_ID}/products?per_page=50&page=${page}`, {
-      headers: {
-        'Authentication': `bearer ${TOKEN}`,
-        'User-Agent': 'ASuaCasaTech (adm@asuacasatech.com.br)'
+    // Busca URLs do sitemap
+    const sitemapRes = await fetch('https://loja.asuacasatech.com.br/sitemap.xml');
+    const sitemapXml = await sitemapRes.text();
+
+    // Extrai URLs de produtos
+    const urlMatches = sitemapXml.match(/https:\/\/loja\.asuacasatech\.com\.br\/produtos\/[^<]+/g) || [];
+    const allUrls = [...new Set(urlMatches)];
+    const total = allUrls.length;
+
+    // Paginação
+    const start = (page - 1) * PER_PAGE;
+    const pageUrls = allUrls.slice(start, start + PER_PAGE);
+
+    // Busca dados de cada produto em paralelo
+    const products = await Promise.all(pageUrls.map(async (url) => {
+      try {
+        const r = await fetch(url, {
+          headers: { 'User-Agent': 'ASuaCasaTech/1.0' }
+        });
+        const html = await r.text();
+
+        // Nome
+        const nomeMatch = html.match(/<h1[^>]*>([^<]+)<\/h1>/);
+        const name = nomeMatch ? nomeMatch[1].trim() : '';
+
+        // Preço
+        const precoMatch = html.match(/R\$\s*([0-9]+,[0-9]+)/);
+        const price = precoMatch ? precoMatch[1].replace(',', '.') : '0';
+
+        // Imagem
+        const imgMatch = html.match(/og:image[^>]*content="([^"]+)"/);
+        const image = imgMatch ? imgMatch[1] : '';
+
+        // Slug
+        const slug = url.replace('https://loja.asuacasatech.com.br/produtos/', '').replace(/\/$/, '');
+
+        return {
+          name,
+          price,
+          compare: '',
+          image,
+          url: `https://loja.asuacasatech.com.br/produtos/${slug}`,
+          categories: []
+        };
+      } catch (e) {
+        return null;
       }
-    });
-    if (!r.ok) throw new Error(`Status ${r.status}`);
-    const data = await r.json();
-    const products = (Array.isArray(data) ? data : []).map(p => {
-      const h = p.handle;
-      const handle = typeof h === 'string' ? h : (h?.pt || h?.['pt-BR'] || Object.values(h || {})[0] || String(p.id));
-      const promoPrice = p.variants?.[0]?.promotional_price;
-      const regularPrice = p.variants?.[0]?.price || p.price || '0';
-      const price = promoPrice && parseFloat(promoPrice) < parseFloat(regularPrice) ? promoPrice : regularPrice;
-      const compare = promoPrice && parseFloat(promoPrice) < parseFloat(regularPrice) ? regularPrice : (p.compare_at_price || '');
-      const categories = (p.categories || []).map(c => {
-        const n = c.name || {};
-        return n.pt || n['pt-BR'] || Object.values(n)[0] || '';
-      }).filter(Boolean);
-      return {
-        id: p.id,
-        name: p.name?.pt || p.name?.['pt-BR'] || Object.values(p.name || {})[0] || '',
-        price,
-        compare,
-        image: p.images?.[0]?.src || '',
-        url: `https://loja.asuacasatech.com.br/produtos/${handle}`,
-        categories
-      };
-    });
-    res.json({ products, total: products.length });
+    }));
+
+    const validProducts = products.filter(p => p && p.name);
+
+    res.json({ products: validProducts, total });
   } catch (e) {
     res.status(500).json({ error: e.message });
   }
