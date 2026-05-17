@@ -21,32 +21,36 @@ export default async function handler(req, res) {
           headers: { 'User-Agent': 'ASuaCasaTech/1.0' }
         });
         
-        // Ignora páginas 404
         if (!r.ok) return null;
         
         const html = await r.text();
-
-        // Ignora páginas de erro
         if (html.includes('Erro - 404') || html.includes('página não encontrada')) return null;
 
         // Nome
-        const nomeMatch = html.match(/<h1[^>]*itemprop="name"[^>]*>([^<]+)<\/h1>/) || 
-                          html.match(/<h1[^>]*class="[^"]*product[^"]*"[^>]*>([^<]+)<\/h1>/) ||
-                          html.match(/<h1[^>]*>([^<]+)<\/h1>/);
+        const nomeMatch = html.match(/<h1[^>]*>([^<]+)<\/h1>/);
         const name = nomeMatch ? nomeMatch[1].trim() : '';
         if (!name || name.includes('404') || name.includes('Erro')) return null;
 
-        // Preço — busca o primeiro preço válido
-        const precoMatch = html.match(/["']price["']\s*:\s*["']([0-9.]+)["']/) ||
-                          html.match(/data-price="([0-9.]+)"/) ||
-                          html.match(/R\$\s*([0-9]+[.,][0-9]+)/);
+        // Preço
+        const precoMatch = html.match(/["']price["']\s*:\s*["']?([0-9]+\.?[0-9]*)["']?/) ||
+                          html.match(/R\$\s*([0-9]+[.,][0-9]+)/) ||
+                          html.match(/([0-9]+\.[0-9]{2})/);
         const price = precoMatch ? precoMatch[1].replace(',', '.') : '0';
 
-        // Imagem og:image
-        const imgMatch = html.match(/property="og:image"\s+content="([^"]+)"/) ||
-                         html.match(/content="([^"]+)"\s+property="og:image"/);
-        const image = imgMatch ? imgMatch[1] : '';
-        if (!image) return null;
+        // Imagem — múltiplos padrões
+        const imgPatterns = [
+          /property="og:image"\s+content="([^"]+)"/,
+          /content="([^"]+)"\s+property="og:image"/,
+          /name="twitter:image"\s+content="([^"]+)"/,
+          /(https:\/\/dcdn-us\.mitiendanube\.com\/[^"'\s]+(?:jpg|png|webp))/,
+          /(https:\/\/[^"'\s]+mitiendanube[^"'\s]+(?:jpg|png|webp))/
+        ];
+        
+        let image = '';
+        for (const pat of imgPatterns) {
+          const m = html.match(pat);
+          if (m) { image = m[1]; break; }
+        }
 
         const slug = url.replace('https://loja.asuacasatech.com.br/produtos/', '').replace(/\/$/, '');
 
@@ -54,7 +58,7 @@ export default async function handler(req, res) {
           name,
           price,
           compare: '',
-          image,
+          image: image || '',
           url: `https://loja.asuacasatech.com.br/produtos/${slug}`,
           categories: []
         };
@@ -63,7 +67,8 @@ export default async function handler(req, res) {
       }
     }));
 
-    const validProducts = products.filter(p => p && p.name && p.image);
+    // Aceita produtos com nome mesmo sem imagem
+    const validProducts = products.filter(p => p && p.name && p.name.length > 2);
 
     res.json({ products: validProducts, total: allUrls.length });
   } catch (e) {
